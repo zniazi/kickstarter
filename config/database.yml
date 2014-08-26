@@ -78,8 +78,3 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: Kickstarter_production
-  username: Kickstarter
-  password: <%= ENV['KICKSTARTER_DATABASE_PASSWORD'] %>
