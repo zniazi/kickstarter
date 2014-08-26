@@ -6,6 +6,12 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :email, :password_digest, :session_token, :name, presence: true
 
+  has_many(
+    :projects,
+    class_name: "Project",
+    foreign_key: :user_id
+  )
+
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email)
     (user && user.is_password?(password)) ? user : nil

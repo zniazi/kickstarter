@@ -1,0 +1,12 @@
+<h3>I want to create a ... project called ...</h3>
+
+<form action="" method="POST">
+  <select>
+    <% Category.all.each do |category| %>
+      <option value="<%= category.id %>"><%= category.name %></option>
+    <% end %>
+  </select>
+  <input type="submit" value="Continue">
+</form>
+
+<a href="<%= new_project_url %>">Continue</a>

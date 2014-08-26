@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140826163839) do
+ActiveRecord::Schema.define(version: 20140826192923) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "categories", ["name"], name: "index_categories_on_name", unique: true, using: :btree
 
   create_table "projects", force: true do |t|
     t.integer  "user_id"
@@ -36,6 +44,15 @@ ActiveRecord::Schema.define(version: 20140826163839) do
   add_index "projects", ["subcategory_id"], name: "index_projects_on_subcategory_id", using: :btree
   add_index "projects", ["title"], name: "index_projects_on_title", using: :btree
   add_index "projects", ["user_id"], name: "index_projects_on_user_id", using: :btree
+
+  create_table "rewards", force: true do |t|
+    t.float    "pledge"
+    t.text     "description"
+    t.date     "delivery"
+    t.integer  "shipping_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",           null: false
