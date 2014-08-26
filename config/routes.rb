@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources :projects
   get "learn", to: "projects#learn"
   get "start", to: "projects#start"
+  get "discover", to: "categories#index"
+  resources :categories, only: :show
 end
