@@ -12,6 +12,13 @@ class User < ActiveRecord::Base
     foreign_key: :user_id
   )
 
+  belongs_to(
+    :location,
+    class_name: "Location",
+    foreign_key: :location_id,
+    primary_key: :id
+  )
+
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email)
     (user && user.is_password?(password)) ? user : nil

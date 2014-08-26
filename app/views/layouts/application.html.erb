@@ -15,6 +15,11 @@
   <a href="<%= new_session_url %>">Log in</a>
 <% else %>
   <a href="">Me</a>
+  <form action="<%= session_url %>" method="POST">
+    <%= authenticate %>
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Log out">
+  </form>
 <% end %>
 
 <% if flash[:error] %>

@@ -10,10 +10,14 @@ class SessionsController < ApplicationController
       sign_in(@user)
       redirect_to root_url
     else
-      flash.now[:error] = "Username or Password Incorrect"
+      flash.now[:error] = ["Username or Password Incorrect"]
       @user = User.new(email: session_params[:email])
       render :new
     end
+  end
+
+  def destroy
+    sign_out!
   end
 
   private
