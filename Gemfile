@@ -37,7 +37,10 @@ group :development do
 end
 
 gem 'newrelic_rpm'
-gem 'rails_12factor'
+
+group :production do
+  gem 'rails_12factor'
+end
 
 # Use unicorn as the app server
 # gem 'unicorn'
