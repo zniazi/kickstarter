@@ -7,6 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<a href="">Discover</a>
+<a href="">Start</a>
+<a href="">Search</a>
+<% unless signed_in? %>
+  <a href="<%= new_user_url %>">Sign up</a>
+  <a href="<%= new_session_url %>">Log in</a>
+<% else %>
+  <a href="">Me</a>
+<% end %>
 
 <%= yield %>
 

@@ -1,0 +1,20 @@
+<h1>Settings</h1>
+<form action="<%= user_url %>" method="POST">
+  <%= authenticate %>
+  <input type="hidden" name="_method" value="PATCH">
+  <label for="user_name">Name
+    <input type="text" name="user[name]"
+      value="<%= @user.name %>" id="user_name">
+  </label>
+  <label for="user_biography">Name
+    <textarea name="user[biography]" id="user_biography">
+      <%= @user.name %>
+    </textarea>
+  </label>
+  <label for="user_location">Location
+    <input type="text" name="user[location]"
+      value="<%= @user.location %>" id="user_location">
+  </label>
+
+  <input type="submit" value="Save settings">
+</form>

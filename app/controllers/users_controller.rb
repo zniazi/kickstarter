@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
   def new
     @user = User.new
     render :new
@@ -16,6 +16,11 @@ class UserController < ApplicationController
   def edit
     @user = User.find(params[:id])
     render :edit
+  end
+
+  def show
+    @user = User.find(params[:id])
+    render :show
   end
 
   private
