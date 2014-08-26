@@ -1,0 +1,17 @@
+<h1>Sign up</h1>
+<form action="<%= users_url %>" method="POST">
+  <%= authenticate %>
+  <label for="user_name">Name
+    <input type="text" name="user[name]"
+      value="<%= @user.name %>" id="user_name">
+  </label>
+  <label for="user_email">Email
+    <input type="text" name="user[email]"
+      value="<%= @user.email %>" id="user_email">
+  </label>
+  <label for="user_password">Password
+    <input type="password" name="user[password]" id="user_password">
+  </label>
+
+  <input type="submit" value="Sign me up!">
+</form>
