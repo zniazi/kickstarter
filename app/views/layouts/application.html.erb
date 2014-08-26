@@ -17,6 +17,14 @@
   <a href="">Me</a>
 <% end %>
 
+<% if flash[:error] %>
+<ul>
+  <% flash[:error].each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
+
 <%= yield %>
 
 </body>

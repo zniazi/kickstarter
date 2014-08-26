@@ -1,12 +1,14 @@
 <h3>I want to create a ... project called ...</h3>
 
-<form action="" method="POST">
-  <select>
+<form action="projects_url" method="POST">
+  <%= authenticate %>
+  <select name="project[category_id]">
     <% Category.all.each do |category| %>
       <option value="<%= category.id %>"><%= category.name %></option>
     <% end %>
   </select>
+  <label for="project_title">
+    <input type="text" name="project[title]" id="project_title">
+  </label>
   <input type="submit" value="Continue">
 </form>
-
-<a href="<%= new_project_url %>">Continue</a>

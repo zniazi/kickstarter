@@ -1,5 +1,6 @@
 <h1>Log in</h1>
-<form action="session_url" method="POST">
+<form action="<%= session_url %>" method="POST">
+  <%= authenticate %>
   <label for="session_name">Email
     <input type="text" name="session[email]"
       value="<%= @user.email %>" id="session_email">

@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  before_action :require_current_user, except: :new
+
   def new
     @project = Project.new
     render :new
@@ -7,7 +9,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     if @project.save
-      redirect_to project_url(@project)
+      redirect_to edit_project_url(@project)
     else
       render :new
     end
@@ -43,6 +45,11 @@ class ProjectsController < ApplicationController
 
   def start
     render :start
+  end
+
+  private
+  def project_params
+    params.permit(:project).require(:title, :category_id)
   end
 end
 
