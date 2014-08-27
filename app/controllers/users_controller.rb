@@ -20,6 +20,16 @@ class UsersController < ApplicationController
     render :edit
   end
 
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to user_url(@user)
+    else
+      flash.now[:error] = @user.errors.full_messages
+      render :edit
+    end
+  end
+
   def show
     @user = User.find(params[:id])
     render :show

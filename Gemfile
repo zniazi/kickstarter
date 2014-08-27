@@ -42,6 +42,10 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'paperclip'
+gem 'aws-sdk'
+gem 'figaro'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

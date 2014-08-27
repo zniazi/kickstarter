@@ -19,6 +19,26 @@ class User < ActiveRecord::Base
     primary_key: :id
   )
 
+  has_many(
+    :pledges,
+    class_name: "Pledge",
+    foreign_key: :user_id,
+    primary_key: :id
+  )
+
+  has_many(
+    :rewards_pledged,
+    through: :pledges,
+    source: :reward
+  )
+
+  has_many(
+    :backed_projects,
+    -> { uniq },
+    through: :rewards_pledged,
+    source: :project,
+  )
+
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email)
     (user && user.is_password?(password)) ? user : nil

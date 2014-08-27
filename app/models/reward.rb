@@ -3,12 +3,18 @@ class Reward < ActiveRecord::Base
   validates :description, :delivery_date, :shipping_type, presence: true
 
   has_many(
-    :backers,
-    class_name: "User",
+    :pledges,
+    class_name: "Pledge",
     foreign_key: :reward_id,
     primary_key: :id
   )
-  
+
+  has_many(
+    :backers,
+    through: :pledges,
+    source: :backer
+  )
+
   belongs_to(
     :project,
     class_name: "Project",

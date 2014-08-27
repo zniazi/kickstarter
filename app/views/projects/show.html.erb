@@ -1,0 +1,49 @@
+<h2><%= @project.title %></h2>
+<p>by <%= @project.creator.name %></p>
+<a href="">Home</a>
+<a href="">Updates</a>
+<a href="">Backers</a>
+<a href="">Comments</a>
+<a href=""><%= @project.location.name %></a>
+<% project = @project.subcategory || @project.category %>
+<a href=""><%= project.name %></a>
+<br>
+<video src="https://d2pq0u4uni88oo.cloudfront.net/projects/1215745/video-427513-h264_high.mp4" type="video/mp4" poster="https://s3.amazonaws.com/ksr/projects/1215745/photo-main.jpg?1407954656">
+</video>
+
+<h1><%= @project.backers.count %></h1>
+<p>backers</p>
+<h1>$<%= @project.money_raised %></h1>
+<p>pledged of $<%= @project.goal %> goal</p>
+<h1><%= (@project.end_date.to_date - DateTime.now.to_date).to_i %></h1>
+<p>days to go</p>
+<a href="">Back This Project</a>
+<br><br>
+
+<table border="1">
+  <tr>
+    <td><h6>Project by</h6></td>
+    <td><h5><a href=""><%= @project.creator.name %></a></h5></td>
+  </tr>
+  <td><h6><a href=""><%= @project.location.name %></a></h6></td>
+  <td><p><a href=""><%= @project.creator.projects.count %> created</a></p></td>
+  <td><p><a href=""><%= @project.creator.backed_projects.count %> backed</a></p></td>
+</table>
+<br>
+
+<h5><%= @project.blurb %></h5>
+<main><%= @project.description %></main>
+<h3><%= @project.challenges %></h3>
+
+<br>
+<% @project.rewards.includes(:backers).each do |reward| %>
+  <a href="">
+    <table border="1">
+      <td><p>Pledge $<%= reward.pledge %> or more</p></td>
+      <td><p><%= reward.backers.count %> backers</p></td>
+      <td><p><%= reward.description %></p></td>
+      <td><h5>Estimated delivery: </h5><%= reward.delivery_date %></td>
+    </table>
+  </a><br>
+<% end %>
+
