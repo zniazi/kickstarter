@@ -1,0 +1,64 @@
+<a href="">Basics</a>
+<a href="">Rewards</a>
+<a href="">Story</a>
+<a href="">About you</a>
+<a href="">Account</a>
+<a href="">Preview</a>
+<a href="">Continue</a>
+
+<h3>Meet your new project.</h3>
+<form action="<%= project_url(@project) %>" method="POST">
+	<%= authenticate %>
+	<input type="hidden" name="_method" value="PATCH">
+	<label for="project_image">Project image
+		<input type="text" value="" id="project_image">
+	</label>
+	<label for="project_title">Project title
+		<input type="" value="<%= @project.title %>" id="project_title">
+	</label>
+	<label for="product_category">Category
+  <select name="project[category_id]" id="product_category">
+    <% Category.primary_categories.each do |category| %>
+      <option value="<%= category.id %>"><%= category.name %></option>
+    <% end %>
+  </select>
+	<label for="project_subcategory">
+	  <select name="project[subcategory_id]" id="project_subcategory">
+	    <% @project.category.subcategories.each do |subcategory| %>
+	      <option value="<%= subcategory.id %>">
+					<%= subcategory.name %>
+				</option>
+	    <% end %>
+	  </select>
+	</label>
+
+	<label for="project_blurb">Short blurb
+		<textarea name="project[blurb]" id="project_blurb"><%= @project.blurb %></textarea>
+	</label>
+	<label for="project_location">Project location
+		<select name="project[location]" id="project_location">
+			<% Location.all.each do |location| %>
+			<option value="location.id"><%= location.name %></option>
+			<% end %>
+		</select>
+	</label>
+	<label for="project_end_date">Funding duration
+		<input type="text" name="project[end_date]" 
+			value="<%= @project.end_date %>" id="project_end_date">
+	</label>
+	<label for="project_goal">Funding goal
+		<input type="text" name="project[goal]" value="<%= @project.goal %>">
+	</label>
+	
+	<br>
+	<br>
+	
+	<% reward_count = 1 %>
+	<label for="project_reward_<%= reward_count %>">Reward #<%= reward_count %>
+		<form action="" method="POST">
+			<input type="submit" value="Add reward">
+		</form>
+	</label>
+	
+	<input type="submit" value="Continue">
+</form>

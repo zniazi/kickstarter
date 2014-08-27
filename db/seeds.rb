@@ -38,7 +38,10 @@ Category.create([
   { name: "Weaving", category_id: crafts_id }, { name: "Woodworking", category_id: crafts_id }
 ])
 
-
+Location.create([
+  { name: "New York"}, { name: "San Fransisco" }, { name: "London"}, { name: "Sydney" },
+  { name: "Los Angeles"}, { name: "Beijing" },
+])
 
 
 # This file should contain all the record creation needed to seed the database with its default values.

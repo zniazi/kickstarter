@@ -1,17 +1,16 @@
 class ProjectsController < ApplicationController
   before_action :require_current_user, except: :new
 
-  def new
-    @project = Project.new
-    render :new
-  end
-
   def create
     @project = Project.new(project_params)
+    @project.user_id = current_user.id
+    if project_params[:end_date]
+      @project.end_date = DateTime.current + project_params[:end_date].to_i.days
+    end
     if @project.save
-      redirect_to edit_project_url(@project)
+      render :edit
     else
-      render :new
+      render :start
     end
   end
 
@@ -22,11 +21,8 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
-    if @project.update(project_params)
-
-    else
-
-    end
+    @project.update(project_params)
+    redirect_to edit_project_url(@project)
   end
 
   def show
@@ -49,7 +45,7 @@ class ProjectsController < ApplicationController
 
   private
   def project_params
-    params.permit(:project).require(:title, :category_id)
+    params.require(:project).permit(:title, :category_id)
   end
 end
 

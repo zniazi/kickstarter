@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140826220641) do
+ActiveRecord::Schema.define(version: 20140827030430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +28,10 @@ ActiveRecord::Schema.define(version: 20140826220641) do
   create_table "locations", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
+
+  add_index "locations", ["name"], name: "index_locations_on_name", unique: true, using: :btree
 
   create_table "projects", force: true do |t|
     t.integer  "user_id"
@@ -37,7 +40,7 @@ ActiveRecord::Schema.define(version: 20140826220641) do
     t.integer  "subcategory_id"
     t.text     "blurb"
     t.integer  "location_id"
-    t.date     "end_date"
+    t.datetime "end_date"
     t.float    "goal"
     t.text     "description"
     t.text     "challenges"
@@ -54,11 +57,16 @@ ActiveRecord::Schema.define(version: 20140826220641) do
   create_table "rewards", force: true do |t|
     t.float    "pledge"
     t.text     "description"
-    t.date     "delivery"
+    t.datetime "delivery_date"
     t.integer  "shipping_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "quantity"
+    t.integer  "project_id"
   end
+
+  add_index "rewards", ["delivery_date"], name: "index_rewards_on_delivery_date", using: :btree
+  add_index "rewards", ["project_id"], name: "index_rewards_on_project_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",           null: false

@@ -8,4 +8,11 @@ class Reward < ActiveRecord::Base
     foreign_key: :reward_id,
     primary_key: :id
   )
+  
+  belongs_to(
+    :project,
+    class_name: "Project",
+    foreign_key: :project_id,
+    primary_key: :id
+  )
 end
