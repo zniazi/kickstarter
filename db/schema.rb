@@ -75,13 +75,15 @@ ActiveRecord::Schema.define(version: 20140828160717) do
   create_table "rewards", force: true do |t|
     t.float    "pledge"
     t.text     "description"
-    t.date     "delivery_date"
+    t.datetime "delivery_date"
     t.integer  "shipping_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "quantity"
     t.integer  "project_id"
   end
 
+  add_index "rewards", ["delivery_date"], name: "index_rewards_on_delivery_date", using: :btree
   add_index "rewards", ["project_id"], name: "index_rewards_on_project_id", using: :btree
 
   create_table "users", force: true do |t|
