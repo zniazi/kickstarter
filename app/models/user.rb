@@ -56,7 +56,7 @@ class User < ActiveRecord::Base
 
   def self.find_or_create_by_fb_auth_hash(auth_hash)
     user = User.find_by(uid: auth_hash[:uid], provider: auth_hash[:provider])
-    user.profile_picture = auth_hash[:info][:image].gsub("http", "https")
+    user.profile_picture = auth_hash[:info][:image].gsub("http", "https") if user
     return user if user
     user = User.create(uid: auth_hash[:uid], provider: auth_hash[:provider])
     user.email = auth_hash[:info][:email]
