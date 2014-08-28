@@ -49,6 +49,8 @@ gem 'figaro'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+gem 'backbone-on-rails'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
