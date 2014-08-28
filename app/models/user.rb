@@ -54,6 +54,18 @@ class User < ActiveRecord::Base
     (user && user.is_password?(password)) ? user : nil
   end
 
+  def self.find_or_create_by_fb_auth_hash(auth_hash)
+    user = User.find_by(uid: auth_hash[:uid], provider: auth_hash[:provider])
+    user.profile_picture = auth_hash[:info][:image].gsub("http", "https")
+    return user if user
+    user = User.create(uid: auth_hash[:uid], provider: auth_hash[:provider])
+    user.email = auth_hash[:info][:email]
+    user.name = auth_hash[:info][:name]
+    user.profile_picture = (auth_hash[:info][:image]).gsub("http", "https")
+    user.password_digest = SecureRandom.base64
+    return user
+  end
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)

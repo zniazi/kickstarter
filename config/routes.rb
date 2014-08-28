@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   get "discover", to: "categories#index"
   resources :categories, only: :show
   resources :rewards, only: [:create, :destroy]
+
+  get '/auth/facebook/callback', to: 'oauth_callbacks#facebook'
 end
