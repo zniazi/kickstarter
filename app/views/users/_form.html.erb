@@ -1,6 +1,9 @@
-<form action="<%= user_url(user) %>" method="POST">
+<form action="<%= user_url(user) %>" method="POST" enctype="multipart/form-data">
   <%= authenticate %>
   <input type="hidden" name="_method" value="PATCH">
+  <label for="user_profile_picture">
+    <input type="file" name="user[profile_picture]" id="user_profile_picture">
+  </label>
   <label for="user_name">Name
     <input type="text" name="user[name]"
       value="<%= user.name %>" id="user_name">

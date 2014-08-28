@@ -41,6 +41,22 @@ class Project < ActiveRecord::Base
     source: :backers,
   )
 
+  has_attached_file :video
+  validates_attachment_content_type(
+    :video,
+    :content_type => /\Avideo\/.*\Z/
+  )
+
+  has_attached_file :photo, :styles => {
+    :big => "600x600",
+    :medium => "300x300",
+    :small => "50x50#"
+  }
+  validates_attachment_content_type(
+    :photo,
+    :content_type => /\Aimage\/.*\Z/
+  )
+
   # validates :category_id, :goal, :location_id, :title, :blurb, :end_date,
   #   :description, :challenges, presence: true
   # validates :goal, numericality: { greater_than: 0, less_than_or_equal_to: 100_000_000 }
@@ -70,6 +86,7 @@ class Project < ActiveRecord::Base
   end
 
   def money_raised
+    return 0 if rewards.empty?
     rewards
       .joins(<<-SQL).group("rewards.id")
       INNER JOIN pledges ON pledges.reward_id = rewards.id

@@ -20,6 +20,7 @@ class UsersController < ApplicationController
     render :edit
   end
 
+
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
@@ -35,8 +36,12 @@ class UsersController < ApplicationController
     render :show
   end
 
+  def created
+
+  end
+
   private
   def user_params
-    params.require(:user).permit(:email, :password, :name, :location_id, :biography)
+    params.require(:user).permit(:email, :password, :name, :location_id, :biography, :profile_picture)
   end
 end

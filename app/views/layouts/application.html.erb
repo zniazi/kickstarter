@@ -14,7 +14,7 @@
   <a href="<%= new_user_url %>">Sign up</a>
   <a href="<%= new_session_url %>">Log in</a>
 <% else %>
-  <a href="">Me</a>
+  <a href="<%= user_url(current_user) %>">Me</a>
   <form action="<%= session_url %>" method="POST">
     <%= authenticate %>
     <input type="hidden" name="_method" value="DELETE">

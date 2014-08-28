@@ -2,10 +2,6 @@ class User < ActiveRecord::Base
   attr_reader :password
   after_initialize :ensure_session_token
 
-  validates :email, :session_token, uniqueness: true
-  validates :password, length: { minimum: 6, allow_nil: true }
-  validates :email, :password_digest, :session_token, :name, presence: true
-
   has_many(
     :projects,
     class_name: "Project",
@@ -38,6 +34,20 @@ class User < ActiveRecord::Base
     through: :rewards_pledged,
     source: :project,
   )
+
+  has_attached_file :profile_picture, :styles => {
+    :big => "600x600",
+    :medium => "300x300",
+    :small => "50x50#"
+  }
+  validates_attachment_content_type(
+    :profile_picture,
+    :content_type => /\Aimage\/.*\Z/
+  )
+
+  validates :email, :session_token, uniqueness: true
+  validates :password, length: { minimum: 6, allow_nil: true }
+  validates :email, :password_digest, :session_token, :name, presence: true
 
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email)

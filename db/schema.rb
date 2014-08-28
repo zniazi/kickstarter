@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140827155651) do
+ActiveRecord::Schema.define(version: 20140828152329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,14 @@ ActiveRecord::Schema.define(version: 20140827155651) do
     t.text     "challenges"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "video_file_name"
+    t.string   "video_content_type"
+    t.integer  "video_file_size"
+    t.datetime "video_updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "projects", ["category_id"], name: "index_projects_on_category_id", using: :btree
@@ -77,14 +85,18 @@ ActiveRecord::Schema.define(version: 20140827155651) do
   add_index "rewards", ["project_id"], name: "index_rewards_on_project_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "email",           null: false
-    t.string   "password_digest", null: false
+    t.string   "email",                        null: false
+    t.string   "password_digest",              null: false
     t.string   "session_token"
     t.string   "name"
     t.integer  "location_id"
     t.text     "biography"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "profile_picture_file_name"
+    t.string   "profile_picture_content_type"
+    t.integer  "profile_picture_file_size"
+    t.datetime "profile_picture_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

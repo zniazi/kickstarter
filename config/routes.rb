@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: "welcome#show"
-  resources :users
+  resources :users do
+    get "create", to: "users#"
+  end
   resource :session, only: [:new, :create, :destroy]
   resources :projects
   get "learn", to: "projects#learn"

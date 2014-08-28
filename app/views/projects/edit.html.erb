@@ -7,11 +7,11 @@
 <a href="">Continue</a>
 
 <h1>Meet your new project.</h1>
-<form action="<%= project_url(@project) %>" method="POST">
+<form action="<%= project_url(@project) %>" method="POST" enctype="multipart/form-data">
 	<%= authenticate %>
 	<input type="hidden" name="_method" value="PATCH">
 	<label for="project_image">Project image
-		<input type="text" value="" id="project_image">
+    <input type="file" name="project[photo]" id="project_image">
 	</label>
 	<label for="project_title">Project title
 		<input type="text" name="project[title]"
@@ -60,7 +60,7 @@
   <br>
 
   <label for="project_video">Project video
-    <input type="text" name="project[video]" id="project_video">
+    <input type="file" name="project[video]" id="project_video">
   </label>
   <label for="project_description">Project description
     <textarea name="project[description]"
