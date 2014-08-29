@@ -1,0 +1,10 @@
+<% var creator = project.escape("creator") %>
+<%  %>
+<p>by <a href="/users/<%= creator.id %>"><%= creator.name %></a></p>
+<a href="">Home</a>
+<a href="">Updates</a>
+<a href="">Backers</a>
+<a href="">Comments</a>
+<% if (project.location) %>
+<a href=""><%= project.escape("location").name %></a>
+

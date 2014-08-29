@@ -1,16 +1,15 @@
-class ProjectsController < ApplicationController
-  before_action :require_current_user, except: :new
+class Api::ProjectsController < ApplicationController
+  before_action :require_current_user, except: :learn
 
   def create
-    @project = Project.new(project_params)
-    @project.user_id = current_user.id
+    @project = current_user.projects.new(project_params)
     if project_params[:end_date]
       @project.end_date = DateTime.current + project_params[:end_date].to_i.days
     end
     if @project.save
-      render :edit
+      render json: @project
     else
-      render :start
+      render json: @project.errors.full_messages, status: :unprocessable_entity
     end
   end
 
@@ -21,8 +20,11 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
-    @project.update(project_params)
-    redirect_to edit_project_url(@project)
+    if @project.update(project_params)
+      render :edit
+    else
+      render json: @project.errors, status: :unprocessable_entity
+    end
   end
 
   def show
@@ -31,8 +33,8 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    Project.find(params[:id]).destroy
-    redirect_to root_url
+    Project.find(params[:id]).try(:destroy)
+    render json: {}
   end
 
   def learn

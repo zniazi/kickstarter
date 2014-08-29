@@ -1,15 +1,7 @@
 App.Routers.AppRouter = Backbone.Router.extend({
   routes: {
-    "": "kickstarterIndex",
-    "projects/new": "projectsNew",
+    "projects/:id/edit": "projectsEdit",
     "projects/:id": "projectsShow"
-  },
-
-  kickstarterIndex: function () {
-    var indexView = new App.Views.KickstarterIndex({
-      collection: App.Collections.projects
-    });
-    this._swapView(indexView);
   },
 
   projectsNew: function () {
@@ -17,13 +9,17 @@ App.Routers.AppRouter = Backbone.Router.extend({
     this._swapView(newView);
   },
 
+  projectsEdit: function (id) {
+    var project = App.Collections.projects.getOrFetch(id);
+    var editView = new App.Views.ProjectsEdit({ model: project });
+    this._swapView(editView)
+  },
+
   projectsShow: function (id) {
     var project = App.Collections.projects.getOrFetch(id);
-
     var showView = new App.Views.ProjectsShow({
       model: project
     });
-
     this._swapView(showView);
   },
 

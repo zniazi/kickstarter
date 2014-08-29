@@ -17,6 +17,9 @@ Rails.application.routes.draw do
 
   namespace :api, :defaults => { :format => :json } do
     resources :projects, except: [:new, :index]
+    get "learn", to: "projects#learn"
+    get "start", to: "projects#start"
+    get "discover", to: "categories#index"
     resources :categories, only: :show
     resources :rewards, only: [:create, :destroy]
   end

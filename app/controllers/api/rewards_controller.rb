@@ -1,10 +1,12 @@
-class RewardsController < ApplicationController
+class Api::RewardsController < ApplicationController
   def create
     @reward = Reward.new(reward_params)
     @reward.delivery_date = delivery_date
-    @reward.save
-    flash[:error] = @reward.errors.full_messages
-    redirect_to edit_project_url(@reward.project)
+    if @reward.save
+      redirect_to edit_api_project_url(@reward.project)
+    else
+      render json: @reward.errors, status: :unprocessable_entity
+    end
   end
 
   private

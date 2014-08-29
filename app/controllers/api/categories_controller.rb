@@ -1,4 +1,4 @@
-class CategoriesController < ApplicationController
+class Api::CategoriesController < ApplicationController
   def index
     @category = Category.find_by_name("Art")
     render :show

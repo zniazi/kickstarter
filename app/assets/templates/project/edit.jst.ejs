@@ -1,6 +1,25 @@
-<li>
-	<form>
-		<textarea name="comment[content]"><%= comment.escape("content") %></textarea>
-		<input type="submit">
-	</form>
-</li>
+<a href="">Basics</a>
+<a href="">Rewards</a>
+<a href="">Story</a>
+<a href="">About you</a>
+<a href="">Account</a>
+<a href="">Preview</a>
+<a href="">Continue</a>
+
+<h1>Meet your new project.</h1>
+<form action="" method="POST" enctype="multipart/form-data">
+	<input type="hidden" name="_method" value="PATCH">
+	<label for="project_image">Project image
+    <input type="file" name="project[photo]" id="project_image">
+	</label>
+	<label for="project_title">Project title
+		<input type="text" name="project[title]"
+      value="<%= project.title %>" id="project_title">
+	</label>
+	<label for="product_category">Category
+
+
+
+
+	<input type="submit" value="Continue">
+</form>
