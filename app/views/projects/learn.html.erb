@@ -3,6 +3,6 @@ canvas to our imagination</h1>
 
 <a href="<%= start_url %>">Start a project</a>
 <h5>Learn more about our project categories:</h5>
-<% Category.all.each do |category| %>
+<% Category.primary_categories.each do |category| %>
   <a href="<%= category_url(category) %>"><%= category.name %></a>
 <% end %>

@@ -1,13 +1,14 @@
-window.Kickstarter = {
+window.App = {
   Models: {},
   Collections: {},
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    new App.Routers.AppRouter();
+    Backbone.history.start();
   }
 };
 
 $(document).ready(function(){
-  Kickstarter.initialize();
+  App.initialize();
 });
