@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   root to: "welcome#show"
-  resources :users do
-    get "create", to: "users#"
-  end
+  resources :users, except: :index
   resource :session, only: [:new, :create, :destroy]
   resources :projects, except: [:new, :index]
   get "learn", to: "projects#learn"
@@ -16,6 +14,7 @@ Rails.application.routes.draw do
   # Backbone
 
   namespace :api, :defaults => { :format => :json } do
+    resources :users, except: :index
     resources :projects, except: [:new, :index]
     get "learn", to: "projects#learn"
     get "start", to: "projects#start"

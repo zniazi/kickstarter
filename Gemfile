@@ -51,7 +51,6 @@ gem 'omniauth-facebook'
 
 gem 'backbone-on-rails'
 gem 'serialize_json-rails'
-gem 'jbuilder'
 
 # Use unicorn as the app server
 # gem 'unicorn'

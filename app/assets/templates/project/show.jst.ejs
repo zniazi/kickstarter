@@ -1,10 +1,13 @@
-<% var creator = project.escape("creator") %>
-<%  %>
-<p>by <a href="/users/<%= creator.id %>"><%= creator.name %></a></p>
+<% var creator = project.creator() %>
+<p>by <a href="/users/<%= creator.id %>"><%= creator.escape("name") %></a></p>
 <a href="">Home</a>
 <a href="">Updates</a>
 <a href="">Backers</a>
 <a href="">Comments</a>
-<% if (project.location) %>
-<a href=""><%= project.escape("location").name %></a>
-
+<a href=""><%= project.location().escape("name") %></a>
+<% var category = project.subcategory().get("name") ? project.subcategory() : project.category() %>
+<a href=""><%= category.get("name") %></a>
+<br>
+<br>
+<video src="<%= project.get("video_url") %>" type="video/mp4" poster="<%= project.get("photo_url") %>">
+</video>

@@ -4,11 +4,14 @@ json.(@project, :id, :category_id, :subcategory_id, :blurb, :end_date, :goal,
   :photo_content_type, :photo_file_size, :photo_updated_at
   )
 
+json.video_url @project.video.url
+json.photo_url @project.photo.url
+
 json.creator do
   json.partial! "api/user", user: @project.creator
 end
 
-json.location do
-
-end
+json.location @project.location
+json.category @project.category
+json.subcategory @project.subcategory
 

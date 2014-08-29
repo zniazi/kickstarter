@@ -1,8 +1,10 @@
 <h2><%= @project.title %></h2>
 
 <script>
+$(document).ready(function () {
   var view = new App.Views.ProjectsShow({
     model: App.Collections.projects.getOrFetch(<%= @project.id %>)
   });
   $("body").html(view.render().$el);
+});
 </script>
