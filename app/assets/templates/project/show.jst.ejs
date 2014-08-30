@@ -1,4 +1,6 @@
 <% var creator = project.creator() %>
+<% console.log("Yg", project.creator()) %>
+<% console.log("Yes", new App.Models.User(creator.models)) %>
 <p>by <a href="/users/<%= creator.id %>"><%= creator.escape("name") %></a></p>
 <a href="">Home</a>
 <a href="">Updates</a>
@@ -11,3 +13,25 @@
 <br>
 <video src="<%= project.get("video_url") %>" type="video/mp4" poster="<%= project.get("photo_url") %>">
 </video>
+<% console.log(project.backers()) %>
+<h1><%= project.backers().length %></h1>
+<p>backers</p>
+<h1>$<%= project.get("money_raised") %></h1>
+<p>pledged of $<%= project.get("goal") %> goal</p>
+<h1><%= project.get("days_left") %></h1>
+<p>days to go</p>
+<a href="">Back This Project</a>
+<br><br>
+
+<table border="1">
+  <tr>
+    <td><h6>Project by</h6></td>
+    <td><h5><a href=""><%= creator.get("name") %></a></h5></td>
+  </tr>
+  <td><h6><a href=""><%= creator.get("name") %></a></h6></td>
+  <% console.log('projects ', creator.get("projects")) %>
+  <td><p><a href=""><%= creator.get("projects").length %> created</a></p></td>
+  <td><p><a href=""><%= creator.get("backed_projects").length %> backed</a></p></td>
+
+</table>
+<br>

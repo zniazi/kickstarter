@@ -32,6 +32,14 @@ App.Models.Project = Backbone.Model.extend({
     return this._subcategory;
   },
 
+  backers: function () {
+    if (!this._backers) {
+      this._backers = new App.Collections.Users();
+    }
+
+    return this._backers;
+  },
+
   parse: function (response) {
     if (response.creator) {
       this.creator().set(response.creator, { parse: true });
@@ -51,6 +59,11 @@ App.Models.Project = Backbone.Model.extend({
     if (response.subcategory) {
       this.subcategory().set(response.subcategory, { parse: true });
       delete response.subcategory;
+    }
+
+    if (response.backers) {
+      this.backers().set(response.backers, { parse: true });
+      delete response.backers;
     }
 
     return response;
