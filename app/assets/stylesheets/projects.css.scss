@@ -65,6 +65,25 @@
   padding: 30px 30px;
 }
 
+.video-overlay:hover{
+  cursor: pointer;
+  background: #1CD866;
+}
+
+.video-overlay {
+  display: block;
+  position: absolute;
+  border-radius: 5px;
+  background: black;
+  color: white;
+  margin-top: -300px;
+  margin-left: 300px;
+  z-index: 4;
+  padding: 20px 25px;
+  text-align: center;
+  border: 3px solid white;
+}
+
 .content-main > main {
   float: left;
   width: 660px;
