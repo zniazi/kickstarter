@@ -15,7 +15,8 @@
  */
 
 html, body, header, footer, section, article, div, a, img, p, h1, h2, h3, h4,
-h5, h6, table, ul, li, strong, form, label, main, td, video, button, pre, nav {
+h5, h6, table, ul, li, strong, form, label, main, td, video, button, pre, nav
+ {
   margin: 0;
   padding: 0;
   border: 0;
@@ -34,6 +35,30 @@ a {
   color: #118CF9;
 }
 
+input[type="text"],
+input[type="submit"],
+input[type="password"],
+button,
+textarea {
+  display: inline-block;
+  box-sizing: content-box;
+  -webkit-appearance: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  vertical-align: baseline;
+  background: transparent;
+  color: inherit;
+}
+
+input[type="submit"]:hover,
+button:hover {
+  cursor: pointer;
+  color: #6E7173;
+}
+
 ul {
   list-style: none;
 }
@@ -44,7 +69,10 @@ button {
 }
 
 img {
-  display: block;
+}
+
+strong {
+  font-weight: bold;
 }
 
 .badge {
@@ -68,9 +96,19 @@ img {
 	src: url('/assets/RNS-B.ttf');
 }
 
+@font-face {
+  font-family: "helvetica-neue-medium";
+  src: url('/assets/helvetica-neue-medium.ttf');
+}
+
+@font-face {
+  font-family: "helvetica-neue-light";
+  src: url('/assets/helvetica-neue-light.otf');
+}
+
 body {
   font-family: helvetica;
-  background: #F5F8F8;
+  background: #FFFEFE
 }
 
 /* header */
@@ -78,6 +116,11 @@ body {
 nav > a {
 	font-size: 28px;
 	font-family: 'baruta';
+}
+
+nav a:hover {
+  background: #F5F8F8;
+  color: #6E7173;
 }
 
 nav > a > p {
@@ -103,8 +146,89 @@ nav > div > a {
 
 nav a.search {
 	border-left: 1px solid #D0CFD6;
-	border-right: 1px solid #D0CFD6;
 }
+
+.right-nav {
+  float: right;
+}
+
+.right-nav > a {
+  padding: 23px 9px;
+  color: #108BF9;
+}
+
+.right-nav > form {
+  float: right;
+  color: #108BF9;
+  font-size: 12px;
+  padding-top: 3px;
+}
+
+.project-main {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.project-main > img {
+  width: 320px;
+  height: 240px;
+  float: left;
+}
+
+.project-main > div {
+  float: left;
+  width: 50%;
+}
+
+.project-main > div > a {
+  padding-left: 20px;
+  float: left;
+  color: #000;
+  font-weight: bold;
+}
+
+.project-main > div > p {
+  float: left;
+  padding-left: 20px;
+  font-size: 14px;
+  color: #76797B;
+}
+
+.project-main > div > span {
+  padding-top: 20px;
+  float: left;
+  padding-left: 20px;
+  font-family: 'helvetica-neue-light';
+  color: #76797B;
+}
+
+.project-main ul {
+  width: 70%;
+}
+
+.project-main li {
+  float: left;
+}
+
+.project-main li > strong {
+  font-size: 16px;
+}
+
+.project-main li > p {
+  color: #6E7173;
+}
+
+.status-bar {
+
+}
+
+
+
+
+
+
+
 
 
 

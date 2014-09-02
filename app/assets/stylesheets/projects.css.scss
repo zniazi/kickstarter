@@ -15,6 +15,7 @@
 .content-title h1 {
   font-size: 30px;
   font-weight: bold;
+  text-align: center;
 }
 
 .content-title p {
@@ -25,6 +26,10 @@
 
 .content-title a {
   color: black;
+}
+
+.content-updates {
+  background: #F5F8F8;
 }
 
 .content-updates ul {
@@ -92,7 +97,7 @@
 main {
 }
 
-main h1 {
+.content-main > main h1 {
   color: #6E7173;
   font-size: 36px;
   padding-left: 30px;
@@ -100,14 +105,19 @@ main h1 {
   position: relative;
 }
 
-main h5 {
+.content-main > main h5 {
   padding-left: 30px;
   font-size: 22px;
   font-style: helvetica;
   color: #0B1906;
 }
 
-main p {
+.content-main > main h3 {
+  padding-top: 40px;
+  padding-left: 30px;
+}
+
+.content-main > main p {
   padding-left: 30px;
   padding-top: 20px;
   font-size: 16px;

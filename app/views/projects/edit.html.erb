@@ -1,12 +1,18 @@
-<a href="">Basics</a>
-<a href="">Rewards</a>
-<a href="">Story</a>
-<a href="">About you</a>
-<a href="">Account</a>
-<a href="">Preview</a>
-<a href="">Continue</a>
-
 <h1>Meet your new project.</h1>
+
+<script>
+$(document).ready(function () {
+  var view = new App.Views.ProjectsEdit({
+    model: App.Collections.projects.getOrFetch(<%= @project.id %>)
+  });
+
+  $("body").html(view.render().$el);
+});
+</script>
+
+
+
+
 <form action="<%= project_url(@project) %>" method="POST" enctype="multipart/form-data">
 	<%= authenticate %>
 	<input type="hidden" name="_method" value="PATCH">

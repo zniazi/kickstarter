@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :require_current_user, except: :new
+  before_action :must_be_current_user, only: [:edit, :update, :destroy]
 
   def create
     @project = Project.new(project_params)
@@ -47,6 +48,10 @@ class ProjectsController < ApplicationController
   def project_params
     params.require(:project).permit(:title, :photo, :video, :category_id, :subcategory_id,
         :blurb, :location_id, :end_date, :goal, :description, :challenges)
+  end
+
+  def must_be_current_user
+    redirect_to root_url unless current_user.project_ids.include?(params[:id].to_i)
   end
 end
 

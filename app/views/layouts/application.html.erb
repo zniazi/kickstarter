@@ -10,24 +10,27 @@
 <body>
 	<header>
 		<nav class="group">
-			<a href=""><p style="color:#000">Kick</p><p style="color:#2CDB5F">starter</p></a>
+			<a href="/"><p style="color:#000">Kick</p><p style="color:#2CDB5F">starter</p></a>
 			<div>
 				<a href="<%= discover_url %>">Discover</a>
 				<a href="<%= learn_url %>">Start</a>
 				<a href="" class="search">Search</a>
 			</div>
+      <div class="right-nav">
+    		<% unless signed_in? %>
+    		  <a href="<%= new_user_url %>">Sign up</a>
+    		  <a href="<%= new_session_url %>">Log in</a>
+    		<% else %>
+    		  <a href="<%= user_url(current_user) %>">Me</a>
+    		  <form action="<%= session_url %>" method="POST">
+    		    <%= authenticate %>
+    		    <input type="hidden" name="_method" value="DELETE">
+    		    <input type="submit" value="Log out">
+    		  </form>
+    		<% end %>
+      </div>
+
 		</nav>
-		<% unless signed_in? %>
-		  <a href="<%= new_user_url %>">Sign up</a>
-		  <a href="<%= new_session_url %>">Log in</a>
-		<% else %>
-		  <a href="<%= user_url(current_user) %>">Me</a>
-		  <form action="<%= session_url %>" method="POST">
-		    <%= authenticate %>
-		    <input type="hidden" name="_method" value="DELETE">
-		    <input type="submit" value="Log out">
-		  </form>
-		<% end %>
 	</header>
 
 <% if flash[:error] %>
