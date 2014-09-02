@@ -15,7 +15,7 @@
  */
 
 html, body, header, footer, section, article, div, a, img, p, h1, h2, h3, h4,
-h5, h6, table, ul, li, strong, form, label, main, td, video, button, pre {
+h5, h6, table, ul, li, strong, form, label, main, td, video, button, pre, nav {
   margin: 0;
   padding: 0;
   border: 0;
@@ -60,10 +60,53 @@ img {
 
 @font-face {
     font-family: 'Swiss';
-    src: url('/assets/fonts/Swiss 721.ttf');
+    src: url('/assets/Swiss_721.ttf');
+}
+
+@font-face {
+	font-family: "baruta";
+	src: url('/assets/RNS-B.ttf');
 }
 
 body {
   font-family: helvetica;
   background: #F5F8F8;
 }
+
+/* header */
+
+nav > a {
+	font-size: 28px;
+	font-family: 'baruta';
+}
+
+nav > a > p {
+	float: left;
+}
+
+nav {
+	padding: 12px 22px;
+}
+
+nav > div {
+	float: left;
+	margin-left: 25px;
+	padding: 10px;
+}
+
+nav > div > a {
+	color: #6E7173;
+	padding: 23px 17.5px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+nav a.search {
+	border-left: 1px solid #D0CFD6;
+	border-right: 1px solid #D0CFD6;
+}
+
+
+
+
+
