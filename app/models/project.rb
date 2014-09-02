@@ -65,7 +65,7 @@ class Project < ActiveRecord::Base
   # validates_presence_of :rewards
   # validate :user_name, :user_biography
 
-  def money_raised_crazy_sql
+  def money_raised
     sql = <<-SQL
     SELECT
       SUM(total_rewards.total)
@@ -85,7 +85,7 @@ class Project < ActiveRecord::Base
     ActiveRecord::Base.connection.execute(sql)[0]["sum"]
   end
 
-  def money_raised
+  def money_raised_not_working
     return 0 if rewards.empty?
     rewards
       .joins(<<-SQL).group("rewards.id")

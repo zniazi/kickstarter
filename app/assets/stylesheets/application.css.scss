@@ -1,0 +1,69 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+html, body, header, footer, section, article, div, a, img, p, h1, h2, h3, h4,
+h5, h6, table, ul, li, strong, form, label, main, td, video, button, pre {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+a {
+  text-decoration: none;
+  color: #118CF9;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  color: #118CF9;
+  background: #E1F3FD;
+}
+
+img {
+  display: block;
+}
+
+.badge {
+  display: inline-block;
+  background: #6E7173;
+  color: #fff;
+  border-radius: 5px;
+  margin: auto;
+  font-size: 12px;
+  padding: 4px 8px;
+  font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Swiss';
+    src: url('/assets/fonts/Swiss 721.ttf');
+}
+
+body {
+  font-family: helvetica;
+  background: #F5F8F8;
+}

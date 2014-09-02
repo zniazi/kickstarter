@@ -40,6 +40,14 @@ App.Models.Project = Backbone.Model.extend({
     return this._backers;
   },
 
+  rewards: function () {
+    if (!this._rewards) {
+      this._rewards = new App.Collections.Rewards();
+    }
+
+    return this._rewards;
+  },
+
   parse: function (response) {
     if (response.creator) {
       this.creator().set(response.creator, { parse: true });
@@ -64,6 +72,11 @@ App.Models.Project = Backbone.Model.extend({
     if (response.backers) {
       this.backers().set(response.backers, { parse: true });
       delete response.backers;
+    }
+
+    if (response.rewards) {
+      this.rewards().set(response.rewards, { parse: true });
+      delete response.rewards;
     }
 
     return response;

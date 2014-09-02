@@ -1,37 +1,75 @@
 <% var creator = project.creator() %>
-<% console.log("Yg", project.creator()) %>
-<% console.log("Yes", new App.Models.User(creator.models)) %>
-<p>by <a href="/users/<%= creator.id %>"><%= creator.escape("name") %></a></p>
-<a href="">Home</a>
-<a href="">Updates</a>
-<a href="">Backers</a>
-<a href="">Comments</a>
-<a href=""><%= project.location().escape("name") %></a>
-<% var category = project.subcategory().get("name") ? project.subcategory() : project.category() %>
-<a href=""><%= category.get("name") %></a>
-<br>
-<br>
-<video src="<%= project.get("video_url") %>" type="video/mp4" poster="<%= project.get("photo_url") %>">
-</video>
-<% console.log(project.backers()) %>
-<h1><%= project.backers().length %></h1>
-<p>backers</p>
-<h1>$<%= project.get("money_raised") %></h1>
-<p>pledged of $<%= project.get("goal") %> goal</p>
-<h1><%= project.get("days_left") %></h1>
-<p>days to go</p>
-<a href="">Back This Project</a>
-<br><br>
 
-<table border="1">
-  <tr>
-    <td><h6>Project by</h6></td>
-    <td><h5><a href=""><%= creator.get("name") %></a></h5></td>
-  </tr>
-  <td><h6><a href=""><%= creator.get("name") %></a></h6></td>
-  <% console.log('projects ', creator.get("projects")) %>
-  <td><p><a href=""><%= creator.get("projects").length %> created</a></p></td>
-  <td><p><a href=""><%= creator.get("backed_projects").length %> backed</a></p></td>
+<div class="content">
+  <section class="content-title">
+    <h1><%= project.get("title") %></h1>
+    <p>by <a href="/users/<%= creator.id %>"><%= creator.escape("name") %></a></p>
+  </section>
 
-</table>
-<br>
+  <section class="content-updates">
+    <ul class="group">
+      <li><a href="">Home</a></li>
+      <li><a href="">Updates <strong class="badge">2</strong></a></li>
+      <li><a href="">Backers <strong class="badge">34</strong></a></li>
+      <li><a href="">Comments <strong class="badge">4</strong></a></li>
+      <ul>
+        <li><a href=""><%= project.location().escape("name") %></a></li>
+        <% var category = project.subcategory().get("name") ? project.subcategory() : project.category() %>
+        <li><a href=""><%= category.get("name") %></a></li>
+      </ul>
+    </ul>
+  </section>
+
+  <section class="content-main group">
+    <main>
+      <video src="<%= project.get("video_url") %>" type="video/mp4" poster="<%= project.get("photo_url") %>" width="640" height="480">
+      </video>
+
+      <h5><%= project.get("blurb") %></h5>
+      <p><%= project.get("description") %></p>
+      <h1><div class="bottom-border"></div>Risks and challenges</h1>
+      <h3><%= project.get("challenges") %></h3>
+    </main>
+
+    <div>
+      <h1><%= project.backers().length %></h1>
+      <p>backers</p>
+      <h1>$<%= project.get("money_raised") %></h1>
+      <p>pledged of $<%= project.get("goal") %> goal</p>
+      <h1><%= project.get("days_left") %></h1>
+      <p>days to go</p>
+      <a href="">
+        <div class="buy-button">
+          <h6>Back This Project</h6>
+          <p>$1 minimum pledge</p>
+        </div>
+      </a>
+
+      <div class="user-box">
+        <img src="https://s3.amazonaws.com/ksr/avatars/3298157/fb_profile_picture.small.jpg?1402686508" width="100" height="100">
+        <h6>Project by</h6>
+        <h5><%= creator.get("name") %></h5>
+        <a href="">Vergas, MN</a>
+        <% if (creator.get("projects")) { %>
+          <p><%= creator.get("backed_projects").length %> backed</p>
+        <% }; %>
+        <div>
+          <a href="" style="border-right: 1px solid #7DBAE4;">See full bio</a>
+          <a href="">Contact me</a>
+        </div>
+      </div>
+
+      <section class="rewards"></section>
+      <% project.rewards().each(function (reward) { %>
+        <div class="reward-box">
+          <h3 class="hidden">Select this reward</h3>
+          <h6>Pledge $<%= reward.get("pledge") %> or more</h6>
+          <h5><%= reward.get("backers").length %> backers</h5>
+          <p><%= reward.get("description") %> backed</p>
+          <h5>Estimated delivery:<pre> <%= reward.get("delivery_date") %>      </pre></h5>
+        </div>
+      <% }); %>
+    </div>
+  </section>
+</div>
+

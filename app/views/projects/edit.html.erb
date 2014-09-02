@@ -44,7 +44,9 @@
 	<label for="project_location">Project location
 		<select name="project[location_id]" id="project_location">
 			<% Location.all.each do |location| %>
-			<option value="location.id"><%= location.name %></option>
+			<option value=<%= location.id %> <%= "selected" if @project.location && @project.location.id == location.id %>>
+        <%= location.name %>
+      </option>
 			<% end %>
 		</select>
 	</label>

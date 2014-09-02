@@ -1,4 +1,4 @@
-json.(@project, :id, :category_id, :subcategory_id, :blurb, :end_date, :goal,
+json.(@project, :id, :title, :category_id, :subcategory_id, :blurb, :end_date, :goal,
   :description, :challenges, :created_at, :updated_at
   )
 
@@ -20,3 +20,9 @@ json.backers @project.backers.each do |backer|
   json.partial! "api/user", user: backer
 end
 
+json.rewards @project.rewards.each do |reward|
+  json.backers reward.backers
+  json.pledge reward.pledge
+  json.description reward.description
+  json.delivery_date reward.delivery_date.strftime("%B %Y")
+end
