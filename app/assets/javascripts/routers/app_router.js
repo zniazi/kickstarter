@@ -1,7 +1,7 @@
 App.Routers.AppRouter = Backbone.Router.extend({
   routes: {
+    "projects/:id": "projectsShow",
     "projects/:id/edit": "projectsEdit",
-    "projects/:id": "projectsShow"
   },
 
   projectsNew: function () {

@@ -1,7 +1,6 @@
 class CategoriesController < ApplicationController
   def index
-    @categories = Category.primary_categories
-    render :index
+    render "projects/learn"
   end
 
   def show
