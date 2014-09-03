@@ -1,11 +1,11 @@
 .video {
   position: relative;
   width: 100%;
-  height: 700px;
+  height: 730px;
 }
 
 .video video {
-  height: 700px;
+  height: 100%;
 }
 
 .video h3 {
@@ -41,10 +41,10 @@
 }
 
 .home-main {
-  background: #F5F8F8;
 }
 
 .home-main > section {
+  background: #F5F8F8;
   height: 400px;
   width: 70%;
   margin: auto;

@@ -4,6 +4,7 @@ window.App = {
   Views: {},
   Routers: {},
   initialize: function() {
+    App.Collections.categories.fetch();
     new App.Routers.AppRouter();
     Backbone.history.start();
   }

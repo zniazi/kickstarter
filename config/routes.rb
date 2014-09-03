@@ -19,7 +19,8 @@ Rails.application.routes.draw do
     get "learn", to: "projects#learn"
     get "start", to: "projects#start"
     get "discover", to: "categories#index"
-    resources :categories, only: :show
+    resources :categories, only: [:index, :show]
+    resources :locations, only: [:index, :show]
     resources :rewards, only: [:create, :destroy]
   end
 end

@@ -1,0 +1,155 @@
+.edit-main {
+  background: #F5F8F8;
+  height: 1000px;
+}
+
+.edit-nav {
+  width: 43%;
+  padding-top: 40px;
+  margin: auto;
+}
+
+.edit-nav > ul {
+  margin: auto;
+  width: 100%;
+}
+
+.edit-nav > ul > a {
+  float: left;
+  background: #FFFEFE;
+  border-left: 1px solid #D0CFD6;
+  border-top: 1px solid #D0CFD6;
+  border-bottom: 1px solid #D0CFD6;
+}
+
+.edit-nav > ul > a {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 20px;
+  color: black;
+}
+
+.edit-nav > ul > a:hover {
+  color: #070C35;
+  background: #F7FAF9;
+}
+
+.edit-basics {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.edit-account {
+  border-right: 1px solid #D0CFD6;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin-right: 15px;
+}
+
+.edit-continue {
+  border-radius: 5px;
+  border: 1px solid #D0CFD6;
+}
+
+.edit-header {
+
+}
+
+.edit-header > h1 {
+  padding: 70px 0 20px 0;
+  font-weight: bold;
+  font-size: 36px;
+  text-align: center;
+}
+
+.edit-header > p {
+  padding-bottom: 60px;
+  text-align: center;
+  font-size: 22px;
+}
+
+.edit-form {
+  margin: auto;
+  margin-bottom: 180px;
+  width: 880px;
+  background: #FFFEFE;
+  border: 1px solid #D0CFD6;
+  border-radius: 7px;
+}
+
+.edit-form input[type="file"]::-webkit-file-upload-button
+{
+  border: 2px dotted #D0CFD6;
+  border-radius: 10px;
+  padding: 5px;
+  width: 457px;
+  height: 85px;
+  color: #128BF8;
+  font-size: 14px;
+  font-weight: bold;
+  background: #FFFEFE;
+}
+
+.edit-form input[type="file"]::-webkit-file-upload-button:hover {
+  background: #E2F3FD;
+  cursor: pointer;
+}
+
+.gray-field {
+  margin: 20px 20px;
+  background: #F5F8F8;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.gray-field > label {
+  font-size: 14px;
+  font-weight: bold;
+  display: inline-block;
+  width: 178px;
+  height: 38px;
+  float: left;
+}
+
+.gray-field .edit-category {
+  height: 50px;
+}
+
+.gray-field input[type="text"],
+.gray-field textarea,
+.gray-field input[type="datetime"],
+.gray-field select {
+  float: left;
+  width: 449px;
+  background: #fff;
+  border: 1px solid #D0CFD6;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.gray-field input[type="text"]:focus,
+.gray-field textarea:focus,
+.gray-field input[type="datetime"]:focus {
+  border: 1px solid #148BF8;
+}
+
+.gray-field textarea {
+  height: 70px;
+}
+
+.gray-field select {
+  background-image: url("https://d297h9he240fqh.cloudfront.net/assets/library/forms/select-large-bg-2ca16b945cd93984d623c642df7663b0.png");
+  background-repeat: no-repeat;
+  background-position: 97%;
+}
+
+#project_subcategory {
+  margin-top: 5px;
+}
+
+
+
+
+
+
+

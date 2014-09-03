@@ -38,6 +38,10 @@ a {
 input[type="text"],
 input[type="submit"],
 input[type="password"],
+input[type="file"],
+select,
+input[type="file"]::-webkit-file-upload-button,
+input[type="datetime"],
 button,
 textarea {
   display: inline-block;
