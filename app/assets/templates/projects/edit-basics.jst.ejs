@@ -1,3 +1,5 @@
+<% console.log(this.model) %>
+
 <main class="edit-main">
     <nav class="edit-nav">
       <ul class="group">
@@ -31,8 +33,8 @@
         </div>
         <% var category_id = primeCategory.get("id") %>
         <div class="gray-field group">
-          <label for="product_category" class="edit-category">Category</label>
-            <select name="project[category_id]" id="product_category">
+          <label for="product-category" class="edit-category">Category</label>
+            <select name="project[category_id]" id="product-category">
               <% primaryCategories.each(function (category) { %>
                 <option value="<%= category.id %>"
                   <% if (primeCategory.get("id") === category.get("id")) { %>

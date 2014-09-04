@@ -1,12 +1,12 @@
 .discover > h1 {
-  margin-top: 40px;
+  padding-top: 40px;
   text-align: center;
   font-size: 44px;
   font-family: "helvetica-neue-light";
 }
 
 .discover > h5 {
-  margin-top: 40px;
+  padding-top: 40px;
   color: black;
   text-align: center;
   font-size: 14px;
@@ -31,12 +31,25 @@
   margin: 0 10px;
   margin-bottom: 20px;
   position: relative;
+  background: #FFFEFE;
+  z-index: 3;
+  overflow: hidden;
 }
 
-.discover-grid-cell > h2 {
+.subcontainer {
+  height: 200px;
+  width: 176px;
+  position: absolute;
+  margin-top: -87px;
+  left: 0;
+  top: 0;
+  -webkit-transition: all 0.5s ease;
+}
+
+.discover-grid-cell h2 {
   width: 134px;
   position: absolute;
-  top: 50%;
+  bottom: 25%;
   margin-top: -10px;
   left: 50%;
   margin-left: -67px;
@@ -45,6 +58,198 @@
   font-size: 20px;
   font-family: "helvetica-neue-light";
 }
+
+.discover-grid-cell h4 {
+  width: 134px;
+  position: absolute;
+  top: 25%;
+  margin-top: 2px;
+  left: 50%;
+  margin-left: -67px;
+  text-align: center;
+  color: black;
+  font-size: 16px;
+  font-family: "helvetica-neue-medium";
+}
+
+.discover-grid-cell:hover {
+  cursor: pointer;
+}
+
+.discover-grid-cell:hover .subcontainer {
+  top: 75%;
+}
+
+.discover-grid > div:nth-child(3) h4 {
+  color: white;
+}
+
+.discover-grid > div:nth-child(5) h4 {
+  color: white;
+}
+
+.discover-grid > div:nth-child(6) h4 {
+  color: white;
+}
+
+.discover-grid > div:nth-child(7) h4 {
+  color: white;
+}
+
+.discover-grid > div:nth-child(8) h4 {
+  color: white;
+}
+
+.discover-grid > div:nth-child(9) h4 {
+  color: white;
+}
+
+.discover-grid > div:nth-child(10) h4 {
+  color: white;
+}
+
+.discover-grid > div:nth-child(12) h4 {
+  color: white;
+}
+
+.discover-grid > div:nth-child(14) h4 {
+  color: white;
+}
+
+.discover-grid > div:nth-child(15) h4 {
+  color: white;
+}
+
+.discover-grid > div:nth-child(1):hover {
+  background: #FDAD9B;
+}
+
+.discover-grid > div:nth-child(2):hover{
+  background: #FDFD65;
+}
+
+.discover-grid > div:nth-child(3):hover {
+  background: #FC679C;
+}
+
+.discover-grid > div:nth-child(4):hover,
+.discover-grid > div:nth-child(4):hover h4 {
+  background: #947CF7;
+  color: white;
+}
+
+.discover-grid > div:nth-child(5):hover {
+  background: #2F3BF5;
+}
+
+.discover-grid > div:nth-child(6):hover {
+  background: #FC87CC;
+}
+
+.discover-grid > div:nth-child(7):hover {
+  background: #FB3D5B;
+}
+
+.discover-grid > div:nth-child(8):hover {
+  background: #FB1A33;
+}
+
+.discover-grid > div:nth-child(9):hover {
+  background: #18C09A;
+}
+
+.discover-grid > div:nth-child(10):hover {
+  background: #1AADE4;
+}
+
+.discover-grid > div:nth-child(11):hover,
+.discover-grid > div:nth-child(11):hover h2 {
+  background: #97FFC8;
+  color: black;
+}
+
+.discover-grid > div:nth-child(12):hover {
+  background: #1CDEDE;
+}
+
+.discover-grid > div:nth-child(13):hover,
+.discover-grid > div:nth-child(13):hover h2 {
+  background: #DAD4C5;
+  color: black;
+}
+
+.discover-grid > div:nth-child(14):hover {
+  background: #517FF9;
+}
+
+.discover-grid > div:nth-child(15):hover {
+  background: #F8654C;
+}
+
+.box-container {
+  position: relative;
+  height: 579px;
+}
+
+ul.floating-boxes > li {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  z-index: -1;
+}
+
+ul.floating-boxes > li:nth-child(1) {
+  background: #22DD67;
+  top: 25%;
+  left: 1.5%;
+  -webkit-transform: rotate(20deg);
+}
+
+ul.floating-boxes > li:nth-child(2) {
+  background: #9579F2;
+  top: 20%;
+  left: 25%;
+  -webkit-transform: rotate(-20deg);
+}
+
+ul.floating-boxes > li:nth-child(3) {
+  background: #1AD1CE;
+  top: 20%;
+  right: 2.2%;
+  -webkit-transform: rotate(50deg);
+}
+
+ul.floating-boxes > li:nth-child(4) {
+  background: #FB3D5B;
+  top: 40%;
+  right: 30%;
+  -webkit-transform: rotate(20deg);
+}
+
+ul.floating-boxes > li:nth-child(5) {
+  background: #070B33;
+  top: 70%;
+  right: 11%;
+  -webkit-transform: rotate(25deg);
+}
+
+ul.floating-boxes > li:nth-child(6) {
+  background: #FDFD65;
+  top: 75%;
+  left: 11%;
+  -webkit-transform: rotate(40deg);
+}
+
+body {
+  height: 2000px;
+}
+
+
+
+
+
+
+
 
 
 

@@ -25,4 +25,5 @@ json.rewards @project.rewards.each do |reward|
   json.pledge reward.pledge
   json.description reward.description
   json.delivery_date reward.delivery_date.strftime("%B %Y")
+  json.limit reward.limit
 end

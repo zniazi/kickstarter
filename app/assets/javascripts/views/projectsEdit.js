@@ -9,6 +9,10 @@ App.Views.ProjectsEdit = Backbone.View.extend({
 			console.log(2);
 			return JST["projects/edit-rewards"];
 			break;
+    case 3:
+			console.log(2);
+			return JST["projects/edit-rewards"];
+			break;
 		default:
 			return JST["projects/edit-basics"];
 			break;
@@ -17,8 +21,10 @@ App.Views.ProjectsEdit = Backbone.View.extend({
 
   events: {
     "submit form": "submit",
-    "change #product_category": "renderSubcategory",
-		"click .edit-nav": "renderEdit"
+    "change #product-category": "renderSubcategory",
+		"click .edit-nav": "renderEdit",
+    "click .add-reward": "addRewardView",
+    "change form": "saveChanges"
   },
 
   initialize: function () {
@@ -26,7 +32,7 @@ App.Views.ProjectsEdit = Backbone.View.extend({
     App.Collections.locations.fetch();
     this.listenTo(App.Collections.categories, "sync", this.render);
     this.listenTo(App.Collections.locations, "sync", this.render);
-		this._view = 2;
+		this._view = 1;
   },
 
   render: function () {
@@ -46,24 +52,47 @@ App.Views.ProjectsEdit = Backbone.View.extend({
     this.model.update(params["project"]);
   },
 
+  // var renderedContent = this.template()({
+  //   project: this.model, primeCategory: primeCategory,
+  //   primaryCategories: App.Collections.categories, locations: App.Collections.locations
+  // });
+  //
+  // this.$el.html(renderedContent);
+  //
+  // this.render();
+
   renderSubcategory: function (event) {
     var newId = $(event.currentTarget).val();
-    var primeCategory = App.Collections.categories.get(newId)
-    var renderedContent = this.template({
-      project: this.model, primeCategory: primeCategory,
-      primaryCategories: App.Collections.categories, locations: App.Collections.locations
-    })
-    this.$el.html(renderedContent);
-
-    return this;
+    var primeCategory = App.Collections.categories.get(newId);
+    var subcategories = primeCategory.subcategories();
+    this.$("select#project_subcategory").html("");
+    this.$("select#project_subcategory").append("<option value='" + "'>"
+       + "Subcategory (optional)" + "</option>");
+    subcategories.each(function (subcategory) {
+      var html = "<option value='" + subcategory.id + "' >" +
+        subcategory.escape("name") + "</option>"
+      this.$("select#project_subcategory").append(html);
+    });
   },
 
 	renderEdit: function (event) {
 		event.preventDefault();
+    if (this._changed) {
+      alert("YOLO!");
+      this._changed = false;
+    }
+
     this._view = $(event.target).attr("data-id");
     console.log($(event.target))
 		this.render();
-	}
+	},
+
+  addRewardView: function (event) {
+  },
+
+  saveChanges: function (event) {
+    this._changed = true;
+  }
 });
 
 

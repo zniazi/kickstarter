@@ -1,22 +1,84 @@
-<div class="discover">
-  <h1>Explore an amazing creative universe</h1>
-  <h5>15 diverse categories. Thousands of amazing projects.</h5>
-</div>
-<div class="discover-grid group">
-  <% Category.primary_categories.each do |category| %>
-  <div class="discover-grid-cell">
-    <h2><%= category.name %></h2>
+<div class="box-container">
+  <ul class="floating-boxes">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+
+  <div class="discover">
+    <h1>Explore an amazing creative universe</h1>
+    <h5>15 diverse categories. Thousands of amazing projects.</h5>
   </div>
-  <% end %>
-</ul>
+  <div class="discover-grid group">
+    <% Category.primary_categories.each do |category| %>
+    <div class="discover-grid-cell">
+      <div class="subcontainer">
+        <h4>593 live projects</h4>
+        <h2><%= category.name %></h2>
+      </div>
+    </div>
+    <% end %>
+  </ul>
+</div>
+
+<script>
+
+var lastScroll = 0;
+$(document).ready(function () {
+
+  var distanceToTop = [];
+  $("li").each(function (idx) {
+    distanceToTop.push(parseInt($(this).css("top")))
+  });
+
+  $(document).on("scroll", function(event) {
+
+    var offset = $(window).scrollTop();
+    var height = $(document).height();
+    var percentage = ((0.75 * offset) / height) * 100;
+
+    if (offset === 0) {
+      $("li").each(function (idx) {
+        $(this).css({
+          "top": distanceToTop[idx]
+        })
+      });
+    }
+
+    // We are scrolling down
+    else if (offset < 650 && offset > lastScroll) {
+      $("li").each(function (idx) {
+        $(this).css({
+          "top": parseInt($(this).css("top")) + percentage
+        })
+        console.log($(this).css("top"));
+      });
+    }
+
+    // We are scrolling up
+    else if (offset < 650 && offset < lastScroll) {
+      $("li").each(function (idx) {
+        $(this).css({
+          "top": parseInt($(this).css("top")) - percentage
+        })
+      });
+    }
+
+    lastScroll = offset;
+  });
+});
+</script>
 
 
-<!--<div class="absolute full-height full-width t0 skrollable skrollable-before" data-100="top: 0px;" data-800="top: 80px;" style="top: 0px;">
-<svg enable-background="new 0 0 1730.8 796.2" version="1.1" viewBox="0 0 1730.8 796.2" x="0px" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" y="0px">
-<rect class="fill-dance" height="198" transform="matrix(0.9488 -0.3159 0.3159 0.9488 -10.2197 187.375)" width="198" x="473.8" y="26.2"></rect>
-</svg>
-</div> -->
 
 
 
-  <!-- <a href="<%#= category_url(category) %>"></a> -->
+
+
+
+
+
+

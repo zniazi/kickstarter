@@ -104,7 +104,9 @@
   border-radius: 5px;
 }
 
+.gray-field > label,
 .gray-field > label {
+  padding: 10px;
   font-size: 14px;
   font-weight: bold;
   display: inline-block;
@@ -155,7 +157,7 @@
 #reward-form {
   background: #ECECED;
   width: 485px;
-  margin: 20px 20px;
+  margin: 0 20px;
   border-radius: 5px;
   font-size: 13px;
 }
@@ -214,6 +216,53 @@
 #reward-form select.year {
   width: 128px;
 }
+
+.add-reward
+{
+  position: relative;
+  clear: both;
+  margin: auto;
+  margin-bottom: 20px;
+  border: 2px dotted #D0CFD6;
+  border-radius: 10px;
+  width: 836px;
+  height: 100px;
+  color: #128BF8;
+  font-size: 14px;
+  font-weight: bold;
+  background: #FFFEFE;
+  cursor: pointer;
+}
+
+.add-reward:hover {
+  background: #E2F3FD;
+}
+
+.add-reward:hover p {
+  color: #1087F9;
+}
+
+.add-reward > p {
+  position: absolute;
+  color: black;
+  top: 50%;
+  margin-top: -8px;
+  left: 50%;
+  margin-left: -91px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
