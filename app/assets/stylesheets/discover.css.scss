@@ -1,0 +1,53 @@
+.discover > h1 {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 44px;
+  font-family: "helvetica-neue-light";
+}
+
+.discover > h5 {
+  margin-top: 40px;
+  color: black;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  font-family: "helvetica-neue-medium";
+}
+
+.discover-grid {
+  width: 980px;
+  height: 366px;
+  margin: auto;
+  margin-top: 65px;
+}
+
+.discover-grid-cell {
+  border: 1px solid #D0CFD6;
+  border-radius: 5px;
+  float: left;
+  width: 174px;
+  height: 100px;
+  margin: 0 10px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.discover-grid-cell > h2 {
+  width: 134px;
+  position: absolute;
+  top: 50%;
+  margin-top: -10px;
+  left: 50%;
+  margin-left: -67px;
+  text-align: center;
+  color: #6E7173;
+  font-size: 20px;
+  font-family: "helvetica-neue-light";
+}
+
+
+
+
+
+

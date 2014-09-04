@@ -29,6 +29,9 @@
   color: black;
 }
 
+.edit-nav > ul > a > li {
+}
+
 .edit-nav > ul > a:hover {
   color: #070C35;
   background: #F7FAF9;
@@ -117,7 +120,8 @@
 .gray-field input[type="text"],
 .gray-field textarea,
 .gray-field input[type="datetime"],
-.gray-field select {
+.gray-field select,
+.gray-field form {
   float: left;
   width: 449px;
   background: #fff;
@@ -128,8 +132,10 @@
 
 .gray-field input[type="text"]:focus,
 .gray-field textarea:focus,
-.gray-field input[type="datetime"]:focus {
+.gray-field input[type="datetime"]:focus,
+.gray-field select:focus {
   border: 1px solid #148BF8;
+  transition-delay:0.5s;
 }
 
 .gray-field textarea {
@@ -146,6 +152,68 @@
   margin-top: 5px;
 }
 
+#reward-form {
+  background: #ECECED;
+  width: 485px;
+  margin: 20px 20px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+
+.reward-form-div {
+  width: 485px;
+}
+
+#reward-form label {
+  clear: both;
+  background: #ECECED;
+  display: inline-block;
+  width: 115px;
+  height: 18px;
+  float: left;
+  padding: 10px 5px 10px 10px;
+}
+
+#reward-form label:hover {
+  cursor: pointer;
+}
+
+#reward-form input[type="text"],
+#reward-form textarea,
+#reward-form select {
+  float: right;
+  width: 330px;
+  height: 18px;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #D0CFD6;
+}
+
+#reward-form input[type="text"]:focus,
+#reward-form textarea:focus,
+#reward-form select:focus {
+  border: 1px solid #148BF8;
+  transition-delay:0.5s;
+}
+
+#reward-form textarea {
+  height: 100px;
+}
+
+#reward-form select {
+  background-image: url("https://d297h9he240fqh.cloudfront.net/assets/library/forms/select-large-bg-2ca16b945cd93984d623c642df7663b0.png");
+  background-repeat: no-repeat;
+  background-position: 97%;
+  border-radius: 0;
+}
+
+#reward-form select.month {
+  width: 180px;
+}
+
+#reward-form select.year {
+  width: 128px;
+}
 
 
 

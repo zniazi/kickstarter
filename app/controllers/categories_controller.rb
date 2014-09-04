@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   def index
-    render "projects/learn"
+    render "projects/discover"
   end
 
   def show

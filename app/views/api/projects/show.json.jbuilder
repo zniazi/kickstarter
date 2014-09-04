@@ -1,8 +1,7 @@
 json.(@project, :id, :title, :category_id, :subcategory_id, :blurb, :goal,
   :description, :challenges, :created_at, :updated_at
 )
-
-json.end_date @project.end_date.strftime("%d")
+json.end_date @project.end_date.strftime("%d") if @project.end_date
 json.video_url @project.video.url
 json.photo_url @project.photo.url
 json.money_raised @project.money_raised

@@ -1,5 +1,5 @@
 App.Views.ProjectsEdit = Backbone.View.extend({
-  template: function () {		
+  template: function () {
   	switch(parseInt(this._view)) {
 		case 1:
 			console.log(1);
@@ -14,7 +14,7 @@ App.Views.ProjectsEdit = Backbone.View.extend({
 			break;
   	}
   },
-	
+
   events: {
     "submit form": "submit",
     "change #product_category": "renderSubcategory",
@@ -57,10 +57,11 @@ App.Views.ProjectsEdit = Backbone.View.extend({
 
     return this;
   },
-	
+
 	renderEdit: function (event) {
 		event.preventDefault();
     this._view = $(event.target).attr("data-id");
+    console.log($(event.target))
 		this.render();
 	}
 });
