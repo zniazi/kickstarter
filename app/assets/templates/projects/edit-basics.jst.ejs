@@ -1,0 +1,96 @@
+<main class="edit-main">
+    <nav class="edit-nav">
+      <ul class="group">
+        <a href="" class="edit-basics" data-id="1"><li>Basics</li></a>
+        <a href="" data-id="2"><li>Rewards</li></a>
+        <a href="" data-id="3"><li>Story</li></a>
+        <a href="" data-id="4"><li>About you</li></a>
+        <a href="" class="edit-account" data-id="5"><li>Account</li></a>
+
+        <a href="" class="edit-continue"><li>Continue</li></a>
+      </ul>
+    </nav>
+
+    <header class="edit-header">
+      <h1>Meet your new project.</h1>
+      <p>Add an image, a goal, and other important details.</p>
+    </header>
+
+    <section class="edit-form">
+      <form action="" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="_method" value="PATCH">
+        <div class="gray-field">
+        	<label for="project_image group">Project image</label>
+            <input type="file" name="project[photo]" id="project_image">
+        </div>
+      	<div class="gray-field group">
+          <label for="project_title">Project title</label>
+	          <input type="text" name="project[title]"
+              value="<%= project.escape("title") %>" id="project_title">
+
+        </div>
+        <% var category_id = primeCategory.get("id") %>
+        <div class="gray-field group">
+          <label for="product_category" class="edit-category">Category</label>
+            <select name="project[category_id]" id="product_category">
+              <% primaryCategories.each(function (category) { %>
+                <option value="<%= category.id %>"
+                  <% if (primeCategory.get("id") === category.get("id")) { %>
+                    <%= "selected" %>
+                  <% }; %>>
+                  <%= category.escape("name") %>
+                </option>
+              <% }); %>
+            </select>
+            <div class="gray-field group">
+                <select name="project[subcategory_id]" id="project_subcategory">
+                <% if (category = primaryCategories.get(category_id)) { %>
+                  <% var subcategories = category.subcategories(); %>
+                    <option value="">Subcategory (optional)</option>
+            	    <% subcategories.each(function (subcategory) { %>
+            	      <option value="<%= subcategory.id %>"
+                      <% if (project.get("subcategory_id") === category.get("id")) { %>
+                        <%= "selected" %>
+                      <% }; %>>
+            					<%= subcategory.escape("name") %>
+            				</option>
+                  <% }); %>
+                <% }; %>
+                </select>
+            </div>
+        </div>
+
+        <div class="gray-field group">
+        	<label for="project_blurb">Short blurb</label>
+        		<textarea name="project[blurb]" id="project_blurb"><%= project.blurb %></textarea>
+        </div>
+
+        <div class="gray-field group">
+        	<label for="project_location">Project location</label>
+        		<select name="project[location_id]" id="project_location">
+              <% if (locations.models.length > 0) { %>
+          			<% locations.each(function (location) { %>
+          			<option value=<%= location.id %>
+                  <% if (project.location().id === location.get("id")) { %>
+                    <%= "selected" %>
+                  <% }; %>>
+                  <%= location.get("name") %>
+                </option>
+          			<% }); %>
+              <% }; %>
+        		</select>
+        </div>
+        <div class="gray-field group">
+        	<label for="project_end_date">Number of days</label>
+        		<input type="datetime" name="project[end_date]"
+        			value="<%= project.get("end_date") %>" id="project_end_date">
+        </div>
+        <div class="gray-field group">
+        	<label for="project_goal">Funding goal</label>
+        		<input type="text" name="project[goal]" value="$<%= project.escape("goal") %>">
+        </div>
+
+      </form>
+    </section>
+
+</main>

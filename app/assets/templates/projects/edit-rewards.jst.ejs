@@ -1,0 +1,44 @@
+<% var counter = 1; %>
+<main class="edit-main">
+    <nav class="edit-nav">
+      <ul class="group">
+        <a href="" class="edit-basics" data-id="1"><li>Basics</li></a>
+        <a href="" data-id="2"><li>Rewards</li></a>
+        <a href="" data-id="3"><li>Story</li></a>
+        <a href="" data-id="4"><li>About you</li></a>
+        <a href="" class="edit-account" data-id="5"><li>Account</li></a>
+
+        <a href="" class="edit-continue"><li>Continue</li></a>
+      </ul>
+    </nav>
+
+    <header class="edit-header">
+      <h1>Every project needs great rewards.</h1>
+      <p>Be creative and price them fairly. Explore other projects for inspiration!</p>
+    </header>
+
+    <section class="edit-form">
+      <form action="" method="POST" enctype="multipart/form-data">
+				<input type="hidden" name="_method" value="PATCH">
+        <input type="hidden" name="_method" value="PATCH">
+        <div class="gray-field group">
+					<div class="field-container">
+	        	<label for="reward-form" data-id="<%= counter %>">Reward!</label>
+	            <form id="reward-form">
+								<label for="reward-pledge">Pledge amount</label>
+	            	<input type="" id="reward-pledge"></input>
+	            </form>
+					</div>
+        </div>   	
+      </form>
+    </section>
+
+</main>
+
+
+
+
+
+
+
+
