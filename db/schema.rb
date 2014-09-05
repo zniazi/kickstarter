@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140901163904) do
+ActiveRecord::Schema.define(version: 20140905172623) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,10 +64,14 @@ ActiveRecord::Schema.define(version: 20140901163904) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.boolean  "staff_favorite",     default: false
+    t.boolean  "project_of_the_day", default: false
   end
 
   add_index "projects", ["category_id"], name: "index_projects_on_category_id", using: :btree
   add_index "projects", ["location_id"], name: "index_projects_on_location_id", using: :btree
+  add_index "projects", ["project_of_the_day"], name: "index_projects_on_project_of_the_day", using: :btree
+  add_index "projects", ["staff_favorite"], name: "index_projects_on_staff_favorite", using: :btree
   add_index "projects", ["subcategory_id"], name: "index_projects_on_subcategory_id", using: :btree
   add_index "projects", ["title"], name: "index_projects_on_title", using: :btree
   add_index "projects", ["user_id"], name: "index_projects_on_user_id", using: :btree
@@ -86,8 +90,8 @@ ActiveRecord::Schema.define(version: 20140901163904) do
   add_index "rewards", ["project_id"], name: "index_rewards_on_project_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "email",                        null: false
-    t.string   "password_digest",              null: false
+    t.string   "email",                                        null: false
+    t.string   "password_digest",                              null: false
     t.string   "session_token"
     t.string   "name"
     t.integer  "location_id"
@@ -100,8 +104,10 @@ ActiveRecord::Schema.define(version: 20140901163904) do
     t.datetime "profile_picture_updated_at"
     t.string   "uid"
     t.string   "provider"
+    t.boolean  "admin",                        default: false
   end
 
+  add_index "users", ["admin"], name: "index_users_on_admin", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["session_token"], name: "index_users_on_session_token", unique: true, using: :btree
   add_index "users", ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true, using: :btree

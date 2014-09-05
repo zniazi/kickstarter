@@ -38,7 +38,7 @@ $(document).ready(function () {
 
     var offset = $(window).scrollTop();
     var height = $(document).height();
-    var percentage = ((0.3 * offset) / height) * 100;
+    var percentage = ((0.2 * offset) / height) * 100;
 
     if (offset === 0) {
       $("li").each(function (idx) {
@@ -49,17 +49,16 @@ $(document).ready(function () {
     }
 
     // We are scrolling down
-    else if (offset < 400 && offset > lastScroll) {
+    else if (offset < 650 && offset > lastScroll) {
       $("li").each(function (idx) {
         $(this).css({
           "top": parseInt($(this).css("top")) + percentage
         })
-        console.log($(this).css("top"));
       });
     }
 
     // We are scrolling up
-    else if (offset < 400 && offset < lastScroll) {
+    else if (offset < 650 && offset < lastScroll) {
       $("li").each(function (idx) {
         $(this).css({
           "top": parseInt($(this).css("top")) - percentage

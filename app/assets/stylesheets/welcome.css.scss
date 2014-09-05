@@ -102,11 +102,18 @@
   padding-top: 45px;
 }
 
+.home-main .kickstarter-items {
+  width: 950px;
+  padding-left: 1.5%;
+}
+
 .kickstarter-item {
   width: 300px;
   height: 460px;
   border: 1px solid #D0CFD6;
   border-radius: 5px;
+  float: left;
+  margin-right: 1.5%;
 }
 
 .kickstarter-item img {

@@ -61,6 +61,7 @@
 .content-main {
   width: 1000px;
   margin: auto;
+  padding-bottom: 100px;
   background: #fff;
   border: 1px solid #D0CFD6;
   border-radius: 5px;
@@ -296,6 +297,41 @@ div > h1 {
 .reward-box pre {
   font-weight: normal;
   float: right;
+}
+
+.select-project-admin
+{
+  position: relative;
+  clear: both;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 2px dotted #D0CFD6;
+  border-radius: 10px;
+  width: 100%;
+  height: 100px;
+  color: #128BF8;
+  font-size: 14px;
+  font-weight: bold;
+  background: #FFFEFE;
+  cursor: pointer;
+}
+
+.select-project-admin:hover {
+  background: #E2F3FD;
+}
+
+.select-project-admin:hover p {
+  color: #1087F9;
+}
+
+.select-project-admin > p {
+  position: absolute;
+  color: black;
+  top: 50%;
+  margin-top: -8px;
+  left: 50%;
+  margin-left: -91px;
 }
 
 

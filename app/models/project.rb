@@ -121,4 +121,21 @@ class Project < ActiveRecord::Base
 
     false
   end
+
+  def make_project_of_the_day
+    require_admin
+    project_of_yesterday = Project.where(project_of_the_day: true)
+    project_of_yesterday.project_of_the_day = false
+
+    self.project_of_the_day = true
+  end
 end
+
+
+
+
+
+
+
+
+

@@ -76,6 +76,10 @@
   cursor: pointer;
 }
 
+.discover-grid-cell:hover h2 {
+  color: black;
+}
+
 .discover-grid-cell:hover .subcontainer {
   top: 75%;
 }

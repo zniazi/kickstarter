@@ -1,5 +1,5 @@
 User.create([
-  { name: "Zak Niazi", email: "zniazi1029@gmail.com", password: "123456"},
+  { name: "Zak Niazi", email: "zniazi1029@gmail.com", password: "123456", admin: true},
   { name: "John Redwood", email: "redskins@gmail.com", password: "123456"},
   { name: "Mary Lou", email: "mary@gmail.com", password: "123456"},
   { name: "Ryan Pesch", email: "ryan@gmail.com", password: "123456"}
