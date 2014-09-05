@@ -50,7 +50,7 @@
 
 .home-main section {
   height: 400px;
-  width: 80%;
+  width: 62%;
   margin: auto;
   padding: 70px 0;
 }
@@ -58,6 +58,7 @@
 .home-main section h4 {
   font-size: 20px;
   float: left;
+  padding-bottom: 45px;
 }
 
 .home-main section p {
@@ -74,6 +75,7 @@
 }
 
 .home-main section > ul {
+
   float: right;
   width: 22%;
   border-left: 1px solid #D0CFD6;
@@ -99,12 +101,16 @@
 }
 
 .home-main .project-main {
-  padding-top: 45px;
+
 }
 
 .home-main .kickstarter-items {
-  width: 950px;
+  width: 62%;
   padding-left: 1.5%;
+}
+
+.kickstarter-items h4 {
+  width: 100%;
 }
 
 .kickstarter-item {

@@ -122,7 +122,8 @@ nav > a {
 	font-family: 'baruta';
 }
 
-nav a:hover {
+nav a:hover,
+nav form:hover {
   background: #F5F8F8;
   color: #6E7173;
 }
@@ -153,19 +154,25 @@ nav a.search {
 }
 
 .right-nav {
-  float: right;
+  padding: 0;
+  position: absolute;
+  right: 20px;
+  top: 0;
 }
 
 .right-nav > a {
+  float: left;
   padding: 23px 9px;
   color: #108BF9;
 }
 
 .right-nav > form {
-  float: right;
+  float: left;
   color: #108BF9;
-  font-size: 12px;
-  padding-top: 3px;
+  font-family: "helvetica";
+	font-size: 14px;
+	font-weight: bold;
+  padding: 23px;
 }
 
 .project-main {

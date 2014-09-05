@@ -41,6 +41,8 @@ class Project < ActiveRecord::Base
     source: :backers,
   )
 
+  has_many :comments, as: :commentable
+
   has_attached_file :video
   validates_attachment_content_type(
     :video,
