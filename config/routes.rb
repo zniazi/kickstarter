@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :categories, only: :show
   resources :rewards, only: [:create, :destroy]
 
+  resources :charges
+
   get '/auth/facebook/callback', to: 'oauth_callbacks#facebook'
 
   # Backbone
