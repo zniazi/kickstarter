@@ -56,33 +56,36 @@
 
       <div>
         <a href=""><%= project.title %></a>
-        <p>dfdfdfd</p>
-        <p></p>
+        <p>by <%= project.creator.name %></p>
+        <p><%= project.blurb %></p>
       </div>
 
-      <div>
-        <span></span>
+      <div class="kickstarter-item-location">
+        <span><%= project.location.name %></span>
       </div>
 
-      <div>
-        <div>
-          <div></div>
+      <% percentage = (project.money_raised.to_i / project.goal) * 100 %>
+      <div class="green-bar group">
+        <div class="green-bar-outer">
+          <div class="green-bar-inner" style="width:<%= percentage %>%"></div>
         </div>
+      </div>
 
-        <ul>
-          <li>
-            <strong></strong>
-            <span></span>
+      <div>
+        <ul class="group">
+          <li class="group">
+            <strong><%= percentage.to_i %>%</strong>
+            <span>funded</span>
           </li>
 
           <li>
-            <span></span>
-            <span></span>
+            <strong>$<%= project.money_raised.to_i %></strong>
+            <span>pledged</span>
           </li>
 
           <li>
-            <div></div>
-            <div></div>
+            <strong><%= project.days_left %></strong>
+            <span>days to go</span>
           </li>
         </ul>
       </div>

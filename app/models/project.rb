@@ -95,6 +95,10 @@ class Project < ActiveRecord::Base
       .pluck("rewards.pledge").inject(:+)
   end
 
+  def days_left
+    (self.end_date.to_date - Date.today).to_i
+  end
+
   def user_name
     return false if self.creator.name.nil? || (self.creator.name.length < 1)
 

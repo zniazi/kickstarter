@@ -92,7 +92,8 @@ Pledge.create([
 
 Project.create([
   { title: "Lida Farm Deep Winter Greenhouse and Root Cellar Project", user_id: 4,
-    category_id: Category.find_by_name("Food").id, subcategory_id: Category.find_by_name("Farms").id,
+    end_date: DateTime.now + 45.days,
+    category_id: Category.find_by_name("Food").id, subcategory_id: Category.find_by_name("Farms").id, goal: 5000,
     location_id: 7, blurb: "This deep winter greenhouse/root cellar project extends our growing year round to overcome terrible weather and bad food in Northern MN",
     description: "The Main Idea:  We would like to take winter vegetable production in Northern Minnesota to a new level.  A number of other farms in our region have built 'deep winter greenhouses, a passive-solar design which successfully uses a warm air pumped into a heat sink underground to moderate temperatures (info on current designs).  In a climate where we can reach -20 to -30 degrees and long stretches of sub-zero weather, we propose to add another heating layer to our friends' current designs by adding solar thermal panels.  The greenhouse will allow us to grow cold-tolerant greens through the entire winter. We will complement these greens with storage crops from an attached root cellar, which is also part of the project.  Since we are veterans of vegetable production in Minnesota, we feel this is the right move to extend our season and meet the needs of local eaters in search of good food at a time of the year when we most crave it.  Backers can benefit directly by becoming members of our winter CSA or indirectly by supporting this low-energy solution to winter food production.  We will translate our learnings to other farmers."
   }
