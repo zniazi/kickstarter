@@ -84,109 +84,113 @@
   top: 75%;
 }
 
-.discover-grid > div:nth-child(3) h4 {
+.discover-grid > a:nth-child(3) h4 {
   color: white;
 }
 
-.discover-grid > div:nth-child(5) h4 {
+.discover-grid > a:nth-child(4) h4 {
   color: white;
 }
 
-.discover-grid > div:nth-child(6) h4 {
+.discover-grid > a:nth-child(5) h4 {
   color: white;
 }
 
-.discover-grid > div:nth-child(7) h4 {
+.discover-grid > a:nth-child(6) h4 {
   color: white;
 }
 
-.discover-grid > div:nth-child(8) h4 {
+.discover-grid > a:nth-child(7) h4 {
   color: white;
 }
 
-.discover-grid > div:nth-child(9) h4 {
+.discover-grid > a:nth-child(8) h4 {
   color: white;
 }
 
-.discover-grid > div:nth-child(10) h4 {
+.discover-grid > a:nth-child(9) h4 {
   color: white;
 }
 
-.discover-grid > div:nth-child(12) h4 {
+.discover-grid > a:nth-child(10) h4 {
   color: white;
 }
 
-.discover-grid > div:nth-child(14) h4 {
+.discover-grid > a:nth-child(12) h4 {
   color: white;
 }
 
-.discover-grid > div:nth-child(15) h4 {
+.discover-grid > a:nth-child(14) h4 {
   color: white;
 }
 
-.discover-grid > div:nth-child(1):hover {
+.discover-grid > a:nth-child(15) h4 {
+  color: white;
+}
+
+.discover-grid > a:nth-child(1) > div:hover {
   background: #FDAD9B;
 }
 
-.discover-grid > div:nth-child(2):hover{
+.discover-grid > a:nth-child(2) > div:hover{
   background: #FDFD65;
 }
 
-.discover-grid > div:nth-child(3):hover {
+.discover-grid > a:nth-child(3) > div:hover {
   background: #FC679C;
 }
 
-.discover-grid > div:nth-child(4):hover,
-.discover-grid > div:nth-child(4):hover h4 {
+.discover-grid > a:nth-child(4) > div:hover,
+.discover-grid > a:nth-child(4) > div:hover h4 {
   background: #947CF7;
   color: white;
 }
 
-.discover-grid > div:nth-child(5):hover {
+.discover-grid > a:nth-child(5) > div:hover {
   background: #2F3BF5;
 }
 
-.discover-grid > div:nth-child(6):hover {
+.discover-grid > a:nth-child(6) > div:hover {
   background: #FC87CC;
 }
 
-.discover-grid > div:nth-child(7):hover {
+.discover-grid > a:nth-child(7) > div:hover {
   background: #FB3D5B;
 }
 
-.discover-grid > div:nth-child(8):hover {
+.discover-grid > a:nth-child(8) > div:hover {
   background: #FB1A33;
 }
 
-.discover-grid > div:nth-child(9):hover {
+.discover-grid > a:nth-child(9) > div:hover {
   background: #18C09A;
 }
 
-.discover-grid > div:nth-child(10):hover {
+.discover-grid > a:nth-child(10) > div:hover {
   background: #1AADE4;
 }
 
-.discover-grid > div:nth-child(11):hover,
-.discover-grid > div:nth-child(11):hover h2 {
+.discover-grid > a:nth-child(11) > div:hover,
+.discover-grid > a:nth-child(11) > div:hover h2 {
   background: #97FFC8;
   color: black;
 }
 
-.discover-grid > div:nth-child(12):hover {
+.discover-grid > a:nth-child(12) > div:hover {
   background: #1CDEDE;
 }
 
-.discover-grid > div:nth-child(13):hover,
-.discover-grid > div:nth-child(13):hover h2 {
+.discover-grid > a:nth-child(13) > div:hover,
+.discover-grid > a:nth-child(13) > div:hover h2 {
   background: #DAD4C5;
   color: black;
 }
 
-.discover-grid > div:nth-child(14):hover {
+.discover-grid > a:nth-child(14) > div:hover {
   background: #517FF9;
 }
 
-.discover-grid > div:nth-child(15):hover {
+.discover-grid > a:nth-child(15) > div:hover {
   background: #F8654C;
 }
 

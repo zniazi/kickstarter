@@ -1,8 +1,7 @@
 <main class="home-main">
   <div class="video">
-    <video autoplay="true" loop="loop">
-      <source src="https://d3mlfyygrfdi2i.cloudfront.net/a144/hploop_0204.mp4" type="video/mp4"></source>
-      <img src="https://d3mlfyygrfdi2i.cloudfront.net/9d45/hploop_0204.jpg">
+    <video autoplay="true" loop="loop" poster="https://d3mlfyygrfdi2i.cloudfront.net/9d45/hploop_0204.jpg">
+      <!-- <source src="https://d3mlfyygrfdi2i.cloudfront.net/a144/hploop_0204.mp4" type="video/mp4"></source> -->
     </video>
     <h3>Bring creative projects to life</h3>
     <h6><a href="<%= learn_url %>">Learn more</a></h6>
@@ -12,32 +11,55 @@
     <div class="pick-of-day group">
       <h4>Staff Picks: Art</h4>
       <p>See all Art projects</p>
+		
       <div class="project-main">
-        <% project = Project.find(3) %>
-        <img src="https://s3.amazonaws.com/kickstarter-lite-development/images/projects/3.original.jpg">
-        <div>
-          <a><%= project.title %></a>
-          <p>by <%= project.creator.name %></p>
-          <span><%= project.blurb %></span>
-          <ul class="group">
-            <li>
-              <strong>6%</strong>
-              <p>funded</p>
-            </li>
-            <li>
-              <strong>$1302</strong>
-              <p>pledged</p>
-            </li>
-            <li>
-              <strong>37</strong>
-              <p>backers</p>
-            </li>
-            <li>
-              <strong>24</strong>
-              <p>days to go</p>
-            </li>
-          </ul>
-        </div>
+        <% project = Project.find(3) %>        
+		      
+					<div class="kickstarter-item-big group">
+			        <img src="https://s3.amazonaws.com/ksr/projects/1263921/photo-full.jpg?1408136644">
+	
+						<div class="kickstarter-item-big-info group">
+							
+				      <div>
+				        <a href=""><%= project.title %></a>
+				        <p>by <%= project.creator.name %></p>
+				        <p><%= project.blurb %></p>
+				      </div>
+							
+				      <div class="kickstarter-item-location">
+				        <span><%= project.location.name %></span>
+				      </div>
+							
+				      <% percentage = (project.money_raised.to_i / project.goal) * 100 %>
+				      <div class="green-bar group">
+				        <div class="green-bar-outer">
+				          <div class="green-bar-inner" style="width:<%= percentage %>%"></div>
+				        </div>
+				      </div>
+
+				      <div>
+				        <ul class="group">
+				          <li class="group">
+				            <strong><%= percentage.to_i %>%</strong>
+				            <span>funded</span>
+				          </li>
+
+				          <li>
+				            <strong>$<%= project.money_raised.to_i %></strong>
+				            <span>pledged</span>
+				          </li>
+
+				          <li>
+				            <strong><%= project.days_left %></strong>
+				            <span>days to go</span>
+				          </li>
+				        </ul>
+				      </div>
+						</div>
+
+			    </div>
+				</div>
+					
       </div>
     </div>
     <ul class="side-categories">

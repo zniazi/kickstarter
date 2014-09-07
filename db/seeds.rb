@@ -6,10 +6,14 @@ User.create([
 ])
 
 Category.create([
-  { name: "Art" }, { name: "Comics" }, { name: "Crafts" }, { name: "Dance" },
-  { name: "Design" }, { name: "Fashion" }, { name: "Film & Video" }, { name: "Food" },
-  { name: "Games" }, { name: "Journalism" }, { name: "Music" }, { name: "Photography" },
-  { name: "Publishing" }, { name: "Technology" }, { name: "Theater" }
+  { name: "Art", color: "#ffbdab", font_color: "black" }, { name: "Comics", color: "#fffb78", font_color: "black" }, 
+  { name: "Crafts", color: "#ff81ac", font_color: "white" }, { name: "Dance", color: "#a695f9", font_color: "white" },
+  { name: "Design", color: "#3e59f8", font_color: "white" }, { name: "Fashion", color: "#ff9fd6", font_color: "white" }, 
+  { name: "Film & Video", color: "#ff596e", font_color: "white" }, { name: "Food", color: "#ff3642", font_color: "white" },
+  { name: "Games", color: "#00c9ab", font_color: "white" }, { name: "Journalism", color: "#12bcea", font_color: "white" }, 
+  { name: "Music", color: "#a5ffd3", font_color: "black" }, { name: "Photography", color: "#00e3e5", font_color: "white" },
+  { name: "Publishing", color: "#e2dcd0", font_color: "black" }, { name: "Technology", color: "#6396fc", font_color: "white" }, 
+  { name: "Theater", color: "#ff7d5f", font_color: "white" }
 ])
 
 art_id = Category.find_by_name("Art").id
@@ -43,6 +47,45 @@ Category.create([
   { name: "Weaving", category_id: crafts_id }, { name: "Woodworking", category_id: crafts_id }
 ])
 
+dance_id = Category.find_by_name("Dance").id
+
+Category.create([
+  { name: "Performances", category_id: dance_id }, { name: "Residencies", category_id: dance_id },
+  { name: "Spaces", category_id: dance_id }, { name: "Workshops", category_id: dance_id }
+])
+
+design_id = Category.find_by_name("Design").id
+
+Category.create([
+  { name: "Architecture", category_id: design_id }, { name: "Civic Design", category_id: design_id },
+  { name: "Graphic Design", category_id: design_id }, { name: "Interactive Design", category_id: design_id },
+  { name: "Product Design", category_id: design_id }, { name: "Typography", category_id: design_id }
+])
+
+fashion_id = Category.find_by_name("Fashion").id
+
+Category.create([
+  { name: "Accessories", category_id: fashion_id }, { name: "Apparel", category_id: fashion_id },
+  { name: "Childrenswear", category_id: fashion_id }, { name: "Couture", category_id: fashion_id },
+  { name: "Footwear", category_id: fashion_id }, { name: "Jewelery", category_id: fashion_id },
+  { name: "Pet Fashion", category_id: fashion_id }, { name: "Ready-to-wear", category_id: fashion_id }
+])
+
+film_id = Category.find_by_name("Film & Video").id
+
+Category.create([
+  { name: "Action", category_id: film_id }, { name: "Animation", category_id: film_id },
+  { name: "Comedy", category_id: film_id }, { name: "Documentary", category_id: film_id },
+  { name: "Drama", category_id: film_id }, { name: "Experimental", category_id: film_id },
+  { name: "Family", category_id: film_id }, { name: "Fantasy", category_id: film_id },
+  { name: "Festivals", category_id: film_id }, { name: "Horror", category_id: film_id },
+  { name: "Movie Theaters", category_id: film_id }, { name: "Music Videos", category_id: film_id },
+  { name: "Narrative Film", category_id: film_id }, { name: "Romance", category_id: film_id },
+  { name: "Science Fiction", category_id: film_id }, { name: "Shorts", category_id: film_id },
+  { name: "Television", category_id: film_id }, { name: "Thrillers", category_id: film_id },
+  { name: "Webseries", category_id: film_id }
+])
+
 food_id = Category.find_by_name("Food").id
 
 Category.create([
@@ -52,6 +95,78 @@ Category.create([
   { name: "Farms", category_id: food_id }, { name: "Food Trucks", category_id: food_id },
   { name: "Restaurants", category_id: food_id }, { name: "Small Batch", category_id: food_id },
   { name: "Spaces", category_id: food_id }, { name: "Vegan", category_id: food_id }
+])
+
+games_id = Category.find_by_name("Games").id
+
+Category.create([
+  { name: "Gaming Hardware", category_id: games_id }, { name: "Live Games", category_id: games_id },
+  { name: "Mobile Games", category_id: games_id }, { name: "Playing Cards", category_id: games_id },
+  { name: "Puzzles", category_id: games_id }, { name: "Tabletop Games", category_id: games_id },
+  { name: "Video Games", category_id: games_id }
+])
+
+journalism_id = Category.find_by_name("Journalism").id
+
+Category.create([
+  { name: "Audio", category_id: journalism_id }, { name: "Photo", category_id: journalism_id },
+  { name: "Print", category_id: journalism_id }, { name: "Video", category_id: journalism_id },
+  { name: "Web", category_id: journalism_id }
+])
+
+music_id = Category.find_by_name("Music").id
+
+Category.create([
+  { name: "Blues", category_id: music_id }, { name: "Chiptune", category_id: music_id },
+  { name: "Classical Music", category_id: music_id }, { name: "Country & Folk", category_id: music_id },
+  { name: "Electronic Music", category_id: music_id }, { name: "Faith", category_id: music_id },
+  { name: "Hip-Hop", category_id: music_id }, { name: "Indie Rock", category_id: music_id },
+  { name: "Jazz", category_id: music_id }, { name: "Kids", category_id: music_id },
+  { name: "Latin", category_id: music_id }, { name: "Metal", category_id: music_id },
+  { name: "Pop", category_id: music_id }, { name: "Punk", category_id: music_id },
+  { name: "R&B", category_id: music_id }, { name: "Rock", category_id: music_id },
+  { name: "World Music", category_id: music_id }
+])
+
+photography_id = Category.find_by_name("Photography").id
+
+Category.create([
+  { name: "Animals", category_id: photography_id }, { name: "Fine Art", category_id: photography_id },
+  { name: "Nature", category_id: photography_id }, { name: "People", category_id: photography_id },
+  { name: "Photobooks", category_id: photography_id }, { name: "Places", category_id: photography_id }
+])
+
+publishing_id = Category.find_by_name("Publishing").id
+
+Category.create([
+  { name: "Academic", category_id: publishing_id }, { name: "Anthologies", category_id: publishing_id },
+  { name: "Art Book", category_id: publishing_id }, { name: "Calendars", category_id: publishing_id },
+  { name: "Children's Book", category_id: publishing_id }, { name: "Fiction", category_id: publishing_id },
+  { name: "Literary Journals", category_id: publishing_id }, { name: "Nonfiction", category_id: publishing_id },
+  { name: "Periodical", category_id: publishing_id }, { name: "Poetry", category_id: publishing_id },
+  { name: "Radio & Podcast", category_id: publishing_id }, { name: "Translations", category_id: publishing_id },
+  { name: "Young Adult", category_id: publishing_id }, { name: "Zines", category_id: publishing_id }
+])
+
+technology_id = Category.find_by_name("Technology").id
+
+Category.create([
+  { name: "3D Printing", category_id: technology_id }, { name: "Apps", category_id: technology_id },
+  { name: "Camera Equipment", category_id: technology_id }, { name: "DIY Electronics", category_id: technology_id },
+  { name: "Fabrication Tools", category_id: technology_id }, { name: "Flight", category_id: technology_id },
+  { name: "Gadgets", category_id: technology_id }, { name: "Hardware", category_id: technology_id },
+  { name: "Makerspaces", category_id: technology_id }, { name: "Robots", category_id: technology_id },
+  { name: "Software", category_id: technology_id }, { name: "Sound", category_id: technology_id },
+  { name: "Space Exploration", category_id: technology_id }, { name: "Wearables", category_id: technology_id },
+  { name: "Web", category_id: technology_id }
+])
+
+theater_id = Category.find_by_name("Theater").id
+
+Category.create([
+  { name: "Experimental", category_id: theater_id }, { name: "Festivals", category_id: theater_id },
+  { name: "Immersive", category_id: theater_id }, { name: "Musicals", category_id: theater_id },
+  { name: "Plays", category_id: theater_id }, { name: "Spaces", category_id: theater_id }
 ])
 
 Location.create([
