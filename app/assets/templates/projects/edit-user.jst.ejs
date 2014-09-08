@@ -1,0 +1,58 @@
+<header>
+	<nav class="group">
+		<a href="/"><p style="color:#000">Kick</p><p style="color:#2CDB5F">starter</p></a>
+		<div>
+			<a href="/discover">Discover</a>
+			<a href="/learn">Start</a>
+			<a href="" class="search">Search</a>
+		</div>
+    <div class="right-nav group">
+
+    </div>
+
+	</nav>
+</header>
+
+<% console.log(this.model) %>
+
+<main class="edit-main">
+    <nav class="edit-nav">
+      <ul class="group">
+        <a href="" class="edit-basics" data-id="1">Basics</a>
+        <a href="" data-id="2">Rewards</a>
+        <a href="" data-id="3">Story</a>
+        <a href="" data-id="4">About you</a>
+        <a href="" class="edit-account" data-id="5">Account</a>
+
+        <a href="" class="edit-continue">Continue</a>
+      </ul>
+    </nav>
+
+    <header class="edit-header">
+      <h1>Now a little bit about you.</h1>
+      <p>Tell people who you are! Supporting links are always nice.</p>
+    </header>
+
+    <% console.log("user", project.creator()) %>
+    <section class="edit-form">
+      <form action="" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="_method" value="PATCH">
+        <div class="gray-field group">
+        	<label for="user_profile_picture">Profile Photo</label>
+            <input type="file" name="user[profile_photo]" id="user_profile_picture">
+        </div>
+
+      	<div class="gray-field group">
+          <label for="user_name">Name</label>
+	          <input type="text" name="user[name]"
+              value="<%= project.creator().escape("name") %>" id="user_name">
+        </div>
+
+        <div class="gray-field group">
+        	<label for="user_biography">Biography</label>
+            <textarea name="user[biography]" id="user_biography"><%= project.creator().escape("biography") %></textarea>
+        </div>
+      </form>
+    </section>
+
+</main>

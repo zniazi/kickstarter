@@ -1,9 +1,14 @@
-<h1><%= @user.name %></h1>
-<image src="<%= @user.profile_picture.url(:medium) %>">
-<p>Joined <%= @user.created_at %></p>
-<p>Backed</p>
-<p>Comments</p>
-<a href="">Created</a>
-<% @user.projects.each do |project| %>
-  <a href="<%= project_url(project) %>"><%= project.title %></a>
-<% end %>
+<section class="user-profile">
+  <header group>
+    <h1><%= @user.name %></h1>
+    <image src="<%= @user.profile_picture.url %>">
+    <p>Joined <%= @user.created_at %></p>
+    <p>Backed</p>
+    <p>Comments</p>
+  </header>
+
+  <a href="">Created</a>
+  <% @user.projects.each do |project| %>
+    <a href="<%= project_url(project) %>"><%= project.title %></a>
+  <% end %>
+</section>

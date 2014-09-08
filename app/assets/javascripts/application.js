@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require checkout.js
 //= require underscore
 //= require backbone
 //= require kickstarter

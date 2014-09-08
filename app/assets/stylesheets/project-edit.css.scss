@@ -251,10 +251,59 @@
   margin-left: -91px;
 }
 
+// Project Story CSS
 
+.text-editor {
+  width: 495px;
+  height: 515px;
+  margin: auto;
+  border-radius: 10px;
+  background: #E4E8E8;
+  border: 1px solid #D0CFD6;
+}
 
+.text-editor header {
+  padding-top: 22.5px;
+  padding-bottom: 22.5px;
+  background: #E4E8E8;
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
 
+.text-editor a {
+  margin-left: 12px;
+  color: #6E7173;
+  font-size: 14px;
+  padding: 10px;
+}
 
+.text-editor a:hover,
+.text-editor img:hover {
+  color: #2CDB5F;
+  cursor: pointer;
+}
+
+.text-editor img:hover {
+  background: #2CDB5F;
+}
+
+.text-editor img {
+  color: #6E7173;
+  width: 15px;
+  height: 15px;
+}
+
+.text-editor .text-editor-textarea {
+  border: 0;
+  width: 475px;
+  height: 430px;
+  padding: 10px;
+	background: white;
+  font-size: 18px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
 
 
 

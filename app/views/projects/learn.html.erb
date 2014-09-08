@@ -1,6 +1,6 @@
 <section class="learn-page">
-	<!-- <img src="https://www.kickstarter.com/assets/projects/learn/confetti-bg-8d1f129e6deb22e7dca11eac209fa07c.jpg"> -->
-	
+  <img src="https://www.kickstarter.com/assets/projects/learn/confetti-bg-8d1f129e6deb22e7dca11eac209fa07c.jpg">
+
 	<h1>“The world is but a
 	canvas to our imagination”</h1>
 	<p>—Henry David Thoreau</p>
@@ -12,7 +12,7 @@
 		<input type="hidden" name="project[category_id]" value="1">
 	  <input type="submit" value="Start a project">
 	</form>
-	
+
 	<ul class="learn-categories group">
 		<% Category.primary_categories.each do |category| %>
 		  <li><a href="<%= category_url(category.name) %>"><%= category.name %></a></li>

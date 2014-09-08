@@ -4,6 +4,6 @@ class OauthCallbacksController < ApplicationController
     sign_in(user)
 
     flash[:success] = "Logged in with facebook!"
-    redirect_to user
+    redirect_to root_url
   end
 end

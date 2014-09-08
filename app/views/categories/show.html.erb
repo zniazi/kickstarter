@@ -24,25 +24,26 @@ header.category-header h1:after {
   <section>
     <div class="pick-of-day group">
       <h4>Featured project in <%= @category.name %></h4>
-			
+
       <div class="project-main">
-        <% project = Project.find(3) %>        
-		      
+      <% unless Project.where(category_id: @category.id).first.nil? %>
+        <% project = Project.where(category_id: @category.id).first %>
+
 					<div class="kickstarter-item-big group">
-			        <img src="https://s3.amazonaws.com/ksr/projects/1263921/photo-full.jpg?1408136644">
-	
+			        <img src="<%= project.photo.url %>">
+
 						<div class="kickstarter-item-big-info group">
-							
+
 				      <div>
 				        <a href=""><%= project.title %></a>
 				        <p>by <%= project.creator.name %></p>
 				        <p><%= project.blurb %></p>
 				      </div>
-							
+
 				      <div class="kickstarter-item-location">
 				        <span><%= project.location.name %></span>
 				      </div>
-							
+
 				      <% percentage = (project.money_raised.to_i / project.goal) * 100 %>
 				      <div class="green-bar group">
 				        <div class="green-bar-outer">
@@ -72,21 +73,62 @@ header.category-header h1:after {
 
 			    </div>
 				</div>
-					
+        <% end %>
       </div>
     </div>
 
   </section>
+
+  <section class="kickstarter-items">
+    <% projects = Project.where(category_id: @category.id) %>
+    <h4>Popular</h4>
+    <% projects.each do |project| %>
+    <% next if project.description.nil? %>
+    <div class="kickstarter-item group">
+      <div class="img">
+        <img src="<%= project.photo.url %>">
+      </div>
+
+      <div>
+        <a href=""><%= project.title %></a>
+        <p>by <%= project.creator.name %></p>
+        <p><%= project.blurb %></p>
+      </div>
+
+      <div class="kickstarter-item-location">
+        <span><%= project.location.name %></span>
+      </div>
+
+      <% percentage = (project.money_raised.to_i / project.goal) * 100 %>
+      <div class="green-bar group">
+        <div class="green-bar-outer">
+          <div class="green-bar-inner" style="width:<%= percentage %>%"></div>
+        </div>
+      </div>
+
+      <div>
+        <ul class="group">
+          <li class="group">
+            <strong><%= percentage.to_i %>%</strong>
+            <span>funded</span>
+          </li>
+
+          <li>
+            <strong>$<%= project.money_raised.to_i %></strong>
+            <span>pledged</span>
+          </li>
+
+          <li>
+            <strong><%= project.days_left %></strong>
+            <span>days to go</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <% end %>
+  </section>
 	</div>
 </div>
-
-<h3>Featured project in <%= @category.name %></h3>
-<h3>New and Noteworthy</h3>
-<h3>What's popular</h3>
-<% if signed_in? %>
-<h3>Art in <%= current_user.location %></h3>
-<% end %>
-
 
 
 

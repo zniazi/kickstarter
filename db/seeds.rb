@@ -6,13 +6,13 @@ User.create([
 ])
 
 Category.create([
-  { name: "Art", color: "#ffbdab", font_color: "black" }, { name: "Comics", color: "#fffb78", font_color: "black" }, 
+  { name: "Art", color: "#ffbdab", font_color: "black" }, { name: "Comics", color: "#fffb78", font_color: "black" },
   { name: "Crafts", color: "#ff81ac", font_color: "white" }, { name: "Dance", color: "#a695f9", font_color: "white" },
-  { name: "Design", color: "#3e59f8", font_color: "white" }, { name: "Fashion", color: "#ff9fd6", font_color: "white" }, 
+  { name: "Design", color: "#3e59f8", font_color: "white" }, { name: "Fashion", color: "#ff9fd6", font_color: "white" },
   { name: "Film & Video", color: "#ff596e", font_color: "white" }, { name: "Food", color: "#ff3642", font_color: "white" },
-  { name: "Games", color: "#00c9ab", font_color: "white" }, { name: "Journalism", color: "#12bcea", font_color: "white" }, 
+  { name: "Games", color: "#00c9ab", font_color: "white" }, { name: "Journalism", color: "#12bcea", font_color: "white" },
   { name: "Music", color: "#a5ffd3", font_color: "black" }, { name: "Photography", color: "#00e3e5", font_color: "white" },
-  { name: "Publishing", color: "#e2dcd0", font_color: "black" }, { name: "Technology", color: "#6396fc", font_color: "white" }, 
+  { name: "Publishing", color: "#e2dcd0", font_color: "black" }, { name: "Technology", color: "#6396fc", font_color: "white" },
   { name: "Theater", color: "#ff7d5f", font_color: "white" }
 ])
 
@@ -270,6 +270,167 @@ end
 Pledge.create([
   { user_id: 2, reward_id: 16 }, { user_id: 3, reward_id: 17 }
 ])
+
+User.create({ name: "S.D. Lord", email: "sd@gmail.com", password: "123456"})
+
+Project.create([
+  { title: "Canine Anatomy Sculpture", user_id: User.find_by_name("S.D. Lord").id,
+    end_date: DateTime.now + 30.days,
+    category_id: Category.find_by_name("Art").id, subcategory_id: Category.find_by_name("Sculpture").id, goal: 3500,
+    location_id: Location.find_or_create_by(name: "New York").id, blurb: "Canine Anatomy Sculpture in the spirit the Animaliers of the 19th Century. Great for reference, research or displayed as fine art.",
+    description: "Inspiration for the Canine Anatomy Sculpture. I have always been enamored with such artists as Isidore Bonheur, Antoine Louis Barye and the other Animaliers of the 19th Century. Bonheur's ecorche (pronounced ey-kawr-shey, meaning skinned) horse sculpture in particular, has been a staple for art students the world over. Bonheur's horse was the only quality animal ecorche sculpture that was available to own outside of a museum and it's over a hundred years old! I thought it was high time to bring back the spirit of that bygone era and push it into the 21st century.
+The Canine Anatomy Sculpture is 7 inches high and 9 inches in length shows superficial and deep muscles. I chose to show deep muscles on the left side that are important in understanding the forms underneath the superficial muscles. The color will have a greenish tint indicative of the popular ceramic glazing color during the Arts and Crafts Movement. The sculpture focuses on the shapes and transitions of the muscles which in turn create the silhouettes. Coloring could vary slightly from piece to piece since they are made one at a time. They are cast in a high quality non shrinking Resin.
+The Sculpture is produced by a few highly trained Artisans in the United States. I will personally go over every piece before it is shipped.
+If the project is successful it will help me create many more anatomical studies and give the public something they haven't seen in over 100 years. I have projects in line for other animal sculptures and eventually human anatomy studies. All these sculptures are created by me and are true works of art not scans or casts.
+The reason why I don't have more funding levels is that I want to give all my energy to giving you a quality piece of art and don't want to be distracted by tchotchkes and miscellaneous (stuff). This is a true Kickstarter it's just me and a few talented artisans creating these pieces of art for you. "
+}
+])
+
+Reward.create([
+  { pledge: 0.50, description: "Every bit helps", delivery_date: DateTime.new(2014, 1, 1),
+    shipping_type: 1, project_id: 4 },
+  { pledge: 119, description: "Receive a thank you postcard of the completed project and a place on our virtual dedication wall on our blog.", delivery_date: DateTime.new(2014, 1, 1),
+    shipping_type: 1, project_id: 4 },
+  { pledge: 225, description: "Get a sample of our project.", delivery_date: DateTime.new(2014, 10, 1),
+    shipping_type: 1, project_id: 4 },
+  { pledge: 1000, description: "Receive a place in our hearts.", delivery_date: DateTime.new(2014, 2, 1),
+    shipping_type: 1, project_id: 4 }
+])
+
+2.times do
+  Pledge.create({ user_id: 1, reward_id: 19})
+end
+
+3.times do
+  Pledge.create({ user_id: 2, reward_id: 20})
+end
+
+7.times do
+  Pledge.create({ user_id: 3, reward_id: 21})
+end
+
+
+User.create({ name: "Careen Stoll", email: "cs@gmail.com", password: "123456"})
+
+Project.create([
+  { title: "Fermenting for Health", user_id: User.find_by_name("Careen Stoll").id,
+    end_date: DateTime.now + 30.days,
+    category_id: Category.find_by_name("Art").id, subcategory_id: Category.find_by_name("Ceramics").id, goal: 9400,
+    location_id: Location.find_or_create_by(name: "Portland, OR").id, blurb: "CI'm a full-time studio potter making the BMW of fermenting crocks in durable gorgeous porcelain. Help me buy a kiln that works. Thanks!",
+    description: "I’m Careen Stoll and I’ve been a full-time studio potter for ten years now if you don't count everything before grad school. I’ve been living simply and firing with wood and waste vegetable oil in the kiln in the video named the Tin Man, but last summer, I had to take him apart and move. So now I’m in a new studio in the country, still working with porcelain but firing in a small electric kiln instead. I’ve been making fermenting crocks and selling them at Portland Homestead Supply. For the first time, I’m experiencing a high demand for my work, so I’m ready for a bigger electric kiln. The one that I have is awkwardly small for large crocks and it recently had a major malfunction. Plus a kiln with a computer controller would use energy more efficiently, which is something that I value highly. Already the work is powered as much as possible by solar energy. I’d like to offer something made in as carbon-neutral a way as possible.
+I’d like to tell you a little bit about the fermentation process that happens in the crocks because it does increase the nutritional availability of the food. We all know about sauerkraut, kimchi, and miso. Those very healthy foods are fermented in a jar or crock. Its an anaerobic process in which beneficial bacteria break down the food for you so that more of the vitamins and minerals are available to your body once your own digestive system starts to work on it. I’m a true believer because I see the effects in my own health. I have noticed and I’ve heard from others who use my crocks that they work really well and there’s never any mold growing on the top. I’m sure that is because of the water seal here at the top, which is the German design. I like to think of mine as the BMW of crocks because they are not just made to the highest technical specification, but they are also beautiful and satisfying to touch.
+My project is to further my ability to be an independent professional potter but I have fun stuff to offer in the short term. My budget is 2800 for the kiln itself, a Skutt 1227, 660 for kiln furniture, 330 for tax, and 2/3rds remaining is to account for reward production costs at a living wage, shipping, and handling. I can break it down further if you'd like: basically, I am getting too old to settle for less than a living wage, so for all the items that I've offered, I ask 15/ hr to make them.  This is not digital reproduction, and it is not made in China, bless their overworked hearts.
+I have a variety of goals, one among them is to get my pots into restaurant use, and I have taken concrete steps towards that. So you’ll see that one reward is to enjoy dinner with me at Biwa restaurant in Portland, or a ticket to a quarterly Japanese Kaiseki supper club that uses my dishes as their service. Another way that I am working and collaborating is in industrial design with Mudshark studios. So one reward is for a Mermaid Cup that is my first experiment in having a production studio replicate my popular mug design. That first edition was for 500 mugs, and they sold at New Seasons Market in the Portland area. And if you go to my website Fire-Keeper.org, you will see photos on the home page of the well-loved Research Club Brunch Box fired in the Tin Man. Designed as a classy but portable way to reduce paper waste, the Brunch Box has been featured at Research Club brunches many times. All of these projects have a cumulative effect on my professional capacity. I am poised to bring quality handmade porcelain to the Portland dining scene, and my crocks to your kitchen as a tool for greater digestive health.
+Many thanks for your help!!"
+}
+])
+
+Reward.create([
+  { pledge: 0.50, description: "Every bit helps", delivery_date: DateTime.new(2014, 1, 1),
+    shipping_type: 1, project_id: 5 },
+  { pledge: 119, description: "Receive a thank you postcard of the completed project and a place on our virtual dedication wall on our blog.", delivery_date: DateTime.new(2014, 1, 1),
+    shipping_type: 1, project_id: 5 },
+  { pledge: 225, description: "Get a sample of our project.", delivery_date: DateTime.new(2014, 10, 1),
+    shipping_type: 1, project_id: 5 },
+  { pledge: 1000, description: "Receive a place in our hearts.", delivery_date: DateTime.new(2014, 2, 1),
+    shipping_type: 1, project_id: 5 }
+])
+
+2.times do
+  Pledge.create({ user_id: 1, reward_id: 23})
+end
+
+1.times do
+  Pledge.create({ user_id: 2, reward_id: 24})
+end
+
+2.times do
+  Pledge.create({ user_id: 3, reward_id: 25})
+end
+
+User.create({ name: "Adelheid Zimmerman", email: "az@gmail.com", password: "123456"})
+
+Project.create([
+  { title: "Restoration of 16th Century German Longsword Illustrations", user_id: User.find_by_name("Adelheid Zimmerman").id,
+    end_date: DateTime.now + 30.days,
+    category_id: Category.find_by_name("Art").id, subcategory_id: Category.find_by_name("Illustration").id, goal: 3000,
+    location_id: Location.find_or_create_by(name: "Portland, OR").id, blurb: "Restoration of the Illustrations from Joachim Meÿer’s “A Foundational Description of the Art of Fencing”",
+    description: "Thank you for watching my video and for having interest in this endeavor. Over the last year, I've had a bit of an adventure developing what has become this Kickstarter. This is the story of how I came to this project, what will be accomplished, why I am the perfect person to make it happen, what my progress is so far, and where all this Kickstarter loot is going.
+The genesis of this project happened when I attended the Western Martial Arts Workshop hosted by the Chicago Swordplay Guild last September. I arrived at WMAW hardly knowing what to expect, prepared only with a few years of casual instruction in Capo Ferro and a lifelong interest in Sixteenth century Europe. I took classes where I learned many things and had a fantastic time being introduced to a whole new range of delightful weapons. However, the most formative experiences were my conversations with fascinating, intelligent, wise, and otherwise astonishing humans.
+Through these conversations, I learned about the Historical European Martial Arts community and the experimental archaeology that they are doing to restore and develop our understanding of Europe’s martial arts. In particular, I spent long hours discussing Life, the Universe, and Everything (especially how it pertains to a life lived with a sword) with Roger Norling and Guy Windsor. These two brilliant and charismatic leaders in the HEMA community welcomed and encouraged me with friendship and knowledge.
+The introduction that specifically developed into this project was that of Christopher VanSlambrouck, a co-founder of The Meyer Frei Fechter Guild. He told me about fencing master Joachim Meyer's Opus, A Foundational Description of the Art of Fencing and illustrated by the workshop of Tobias Stimmer first published in 1570.
+I have a Bachelor of Fine Arts from The University of Iowa. My coursework focused on the art history of Europe from 1500-1900, specifically the history of printing. In my studio classes, I discovered a particular talent in style mimicry and digital restoration and manipulation. Outside of college, I have pursued a career in freelance graphic design and illustration. Four years ago, I acquired my first letterpress and have since been producing hand printed cards under the imprint Draupnir Press.
+Consequently, when Chris showed me the quality of the publicly available illustrations from Meyer’s Art of Fencing, I was disappointed. He then showed me high resolution digital photos of the 1600 Meyer from the private collection of the GdC center of studies. I could not wait to get my hands on them. To gauge interest within the western martial arts community, I digitally restored longsword plate D, sent it off to the engraver, and made a small run of ten letterpress prints at the original size. I brought these prints to the Second Annual Meyer Symposium  where they were enthusiastically received. While there, I had many interesting conversations with attendees about how they use historical illustrations to help them understand the techniques described in texts. It became apparent that there is a clear need from researchers, collectors, and martial artists for high quality reproductions of historical images as research and pedagogic resources."
+}
+])
+
+Reward.create([
+  { pledge: 0.50, description: "Every bit helps", delivery_date: DateTime.new(2014, 1, 1),
+    shipping_type: 1, project_id: 6 },
+  { pledge: 119, description: "Receive a thank you postcard of the completed project and a place on our virtual dedication wall on our blog.", delivery_date: DateTime.new(2014, 1, 1),
+    shipping_type: 1, project_id: 6 },
+  { pledge: 225, description: "Get a sample of our project.", delivery_date: DateTime.new(2014, 10, 1),
+    shipping_type: 1, project_id: 6 },
+  { pledge: 1000, description: "Receive a place in our hearts.", delivery_date: DateTime.new(2014, 2, 1),
+    shipping_type: 1, project_id: 6 }
+])
+
+20.times do
+  Pledge.create({ user_id: 1, reward_id: 27})
+end
+
+3.times do
+  Pledge.create({ user_id: 2, reward_id: 28})
+end
+
+1.times do
+  Pledge.create({ user_id: 3, reward_id: 30})
+end
+
+
+User.create({ name: "Robert D. Jansen", email: "rj@gmail.com", password: "123456"})
+
+Project.create([
+  { title: "Help the doctor make beautiful monsters", user_id: User.find_by_name("Robert D. Jansen").id,
+    end_date: DateTime.now + 30.days,
+    category_id: Category.find_by_name("Art").id, subcategory_id: Category.find_by_name("Digital Art").id, goal: 3000,
+    location_id: Location.find_or_create_by(name: "Georgetown, TX").id, blurb: "The high resolution flame fractals of Dr. Bob Jansen are not just mathematical monsters: they could be serious fine art.",
+    description: "Help the mad doctor build more monsters. 'His limbs were in proportion, and I had selected his features as beautiful. Beautiful'. Mary Shelley, Frankenstein
+The high resolution flame fractals of Dr. Bob Jansen are not just beautiful monsters: they could be serious fine art.
+Rewards for supporting R. D. Jansen’s work include downloading the 25 new high resolution (6750 x 4500) images in Folio #9, or choosing from the 255 images of the previous Kickstarter campaigns. Unlimited non-commercial printing is allowed for your own personal art gallery, or as gifts or greeting cards, calendars, etc. There are also large canvas and vinyl prints available as rewards.
+Campaign goal of Folio #9 is $500, to support further experimental art work and allow printing for gallery display.The eight (8) previous Jansen Kickstarter campaigns received as much as twenty five (25) times their goal amounts. It could have something to do with the quality of the rewards.
+Campaign duration is 40 days, and, as usual, pledges exceeding the goal amount will be used for additional gallery printing and mad artistic exploration."}
+])
+
+Reward.create([
+  { pledge: 0.50, description: "Every bit helps", delivery_date: DateTime.new(2014, 1, 1),
+    shipping_type: 1, project_id: 7 },
+  { pledge: 119, description: "Receive a thank you postcard of the completed project and a place on our virtual dedication wall on our blog.", delivery_date: DateTime.new(2014, 1, 1),
+    shipping_type: 1, project_id: 7 },
+  { pledge: 225, description: "Get a sample of our project.", delivery_date: DateTime.new(2014, 10, 1),
+    shipping_type: 1, project_id: 7 },
+  { pledge: 1000, description: "Receive a place in our hearts.", delivery_date: DateTime.new(2014, 2, 1),
+    shipping_type: 1, project_id: 7 }
+])
+
+11.times do
+  Pledge.create({ user_id: 1, reward_id: 31})
+end
+
+3.times do
+  Pledge.create({ user_id: 2, reward_id: 32})
+end
+
+4.times do
+  Pledge.create({ user_id: 3, reward_id: 33})
+end
+
+
+
+
+
+
+
 
 
 

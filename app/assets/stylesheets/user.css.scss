@@ -1,3 +1,26 @@
-// Place all the styles related to the user controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+section.user-profile {
+
+}
+
+section.user-profile > header > h1 {
+  font-weight: bold;
+  font-size: 36px;
+  float: right;
+}
+
+section.user-profile > header > img {
+  float: left;
+  margin-left: 100px;
+  width: 180px;
+  height: 180px;
+  border-radius: 5px;
+}
+
+section.user-profile > p {
+
+}
+
+section.user-profile > a {
+
+}
+

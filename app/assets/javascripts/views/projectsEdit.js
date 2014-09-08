@@ -2,16 +2,16 @@ App.Views.ProjectsEdit = Backbone.View.extend({
   template: function () {
   	switch(parseInt(this._view)) {
 		case 1:
-			console.log(1);
 			return JST["projects/edit-basics"];
 			break;
 		case 2:
-			console.log(2);
 			return JST["projects/edit-rewards"];
 			break;
     case 3:
-			console.log(2);
-			return JST["projects/edit-rewards"];
+			return JST["projects/edit-story"];
+			break;
+    case 4:
+			return JST["projects/edit-user"];
 			break;
 		default:
 			return JST["projects/edit-basics"];
@@ -78,7 +78,6 @@ App.Views.ProjectsEdit = Backbone.View.extend({
 	renderEdit: function (event) {
 		event.preventDefault();
     if (this._changed) {
-      alert("YOLO!");
       this._changed = false;
     }
 

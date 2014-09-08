@@ -35,11 +35,13 @@ class User < ActiveRecord::Base
     source: :project,
   )
 
-  has_attached_file :profile_picture, :styles => {
+  has_attached_file :profile_picture, default_url: "https://pbs.twimg.com/profile_images/464827717767012352/fX_MrbiH.jpeg",
+  :styles => {
     :big => "600x600",
     :medium => "300x300",
     :small => "50x50#"
   }
+
   validates_attachment_content_type(
     :profile_picture,
     :content_type => /\Aimage\/.*\Z/

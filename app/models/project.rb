@@ -49,7 +49,8 @@ class Project < ActiveRecord::Base
     :content_type => /\Avideo\/.*\Z/
   )
 
-  has_attached_file :photo, :styles => {
+  has_attached_file :photo, default_url: "http://investorplace.com/wp-content/uploads/2013/12/kickstarter_logo.jpg",
+  :styles => {
     :big => "600x600",
     :medium => "300x300",
     :small => "50x50#"

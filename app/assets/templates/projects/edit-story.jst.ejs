@@ -1,0 +1,89 @@
+<header>
+	<nav class="group">
+		<a href="/"><p style="color:#000">Kick</p><p style="color:#2CDB5F">starter</p></a>
+		<div>
+			<a href="/discover">Discover</a>
+			<a href="/learn">Start</a>
+			<a href="" class="search">Search</a>
+		</div>
+    <div class="right-nav group">
+
+    </div>
+
+	</nav>
+</header>
+
+<% console.log(this.model) %>
+
+<main class="edit-main">
+    <nav class="edit-nav">
+      <ul class="group">
+        <a href="" class="edit-basics" data-id="1">Basics</a>
+        <a href="" data-id="2">Rewards</a>
+        <a href="" data-id="3">Story</a>
+        <a href="" data-id="4">About you</a>
+        <a href="" class="edit-account" data-id="5">Account</a>
+
+        <a href="" class="edit-continue">Continue</a>
+      </ul>
+    </nav>
+
+    <header class="edit-header">
+      <h1>What are you creating?</h1>
+      <p>Every project must create something to share with others.
+Use this space to tell the story behind your project.</p>
+    </header>
+
+    <section class="edit-form">
+      <form action="" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="_method" value="PATCH">
+        <div class="gray-field group">
+        	<label for="project_video">Project video</label>
+            <input type="file" name="project[video]" id="project_video">
+        </div>
+
+      	<div class="gray-field group">
+          <label for="project_description">Project description</label>
+          <div class="text-editor">
+            <header>
+              <a><strong>B</strong></a>
+              <a><em><strong>i</strong></em></a>
+              <a><strong>H1</strong></a>
+              <a><img src=""></a>
+            </header>
+
+            <div contentEditable="true" class="text-editor-textarea">
+              <%= project.escape("description") %>
+            </div>
+          </div>
+        </div>
+
+        <div class="gray-field group">
+        	<label for="project_challenges group">Risks & Challenges</label>
+            <textarea name="project[challenges]" id="project_challenges"><%= project.escape("challenges") %></textarea>
+        </div>
+      </form>
+    </section>
+
+</main>
+
+<script>
+  $(document).ready(function () {
+		var newHtml = "";
+
+    $("header a:nth-child(1)").on("mousedown", function () {
+			var text = $(".text-editor-textarea").text();
+			var base = document.getSelection().baseOffset;
+			var extent = document.getSelection().extentOffset;
+			// Don't know if user selects from left or right
+			var left = (base < extent ? base : extent);
+			var right = (base > extent ? base : extent);
+			console.log(left, right);
+			// $(".text-editor-textarea").html(text);
+			var html = text.substring(0, left) + "<strong>" +
+				text.substring(left, right) + "</strong>" + text.substring(right, text.length);
+				// var html = text.substring(0, left) + "<strong></strong>" + text.substring(left, text.length)
+			$(".text-editor-textarea").html(html);
+    });
+  });
+</script>

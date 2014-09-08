@@ -79,7 +79,7 @@
 }
 
 .home-main > div.staff-picks div.kickstarter-item-big {
-  width: 80%;
+  width: 800px;
   border: 1px solid #D0CFD6;
   border-radius: 5px;
   float: left;
@@ -97,7 +97,7 @@
 
 .home-main section div.project-main > ul {
   float: right;
-  width: 132px;
+  width: 120px;
   border-left: 1px solid #D0CFD6;
 }
 
@@ -125,7 +125,7 @@
 }
 
 .home-main .kickstarter-items {
-  width: 950px;
+  width: 1000px;
   padding-left: 1.5%;
   margin: auto;
 }
@@ -137,22 +137,27 @@
 // CSS for small kickstarter item
 
 .kickstarter-item {
-  width: 300px;
+  width: 280px;
   height: 460px;
   border: 1px solid #D0CFD6;
   border-radius: 5px;
   float: left;
   margin-right: 1.5%;
+  margin: 20px;
 }
+
+
 
 .kickstarter-item img {
   width: 100%;
+  max-height: 222px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
 
 .kickstarter-item > div.img {
   width: 100%;
+  max-height: 222px;
   float: left;
   padding: 0;
 }
@@ -258,6 +263,7 @@
 	display: block;
 	float: left;
   width: 55%;
+  max-height: 350px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
@@ -269,6 +275,7 @@
 .kickstarter-item-big > .kickstarter-item-big-info {
 	float: left;
 	width: 43%;
+  margin-top: 20px;
 }
 
 .kickstarter-item-big-info div {
@@ -312,6 +319,7 @@
 }
 
 .kickstarter-item-big .kickstarter-item-location {
+  margin-top: 50px;
 }
 
 .kickstarter-item-big .green-bar {

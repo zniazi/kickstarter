@@ -7,7 +7,7 @@ class ChargesController < ApplicationController
     @amount = 50
 
     customer = Stripe::Customer.create(
-      email: "customer@kickstarter-lite.com",
+      email: current_user.email,
       card: params[:stripeToken]
     )
 
