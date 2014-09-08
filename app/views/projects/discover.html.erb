@@ -12,7 +12,7 @@
     <h1>Explore an amazing creative universe</h1>
     <h5>15 diverse categories. Thousands of amazing projects.</h5>
   </div>
-  <div class="discover-grid group">
+  <div class="discover-grid group" style="height: 2000px">
     <% Category.primary_categories.each do |category| %>
     <a href="<%= category_url(category.name) %>"><div class="discover-grid-cell">
           <div class="subcontainer">
@@ -21,7 +21,7 @@
           </div>
         </div></a>
     <% end %>
-  </ul>
+  </div>
 </div>
 
 <script>
@@ -38,7 +38,7 @@ $(document).ready(function () {
 
     var offset = $(window).scrollTop();
     var height = $(document).height();
-    var percentage = ((0.2 * offset) / height) * 100;
+    var percentage = ((1 * offset) / height) * 100;
 
     if (offset === 0) {
       $("li").each(function (idx) {

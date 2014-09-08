@@ -1,7 +1,7 @@
 <main class="home-main">
   <div class="video">
     <video autoplay="true" loop="loop" poster="https://d3mlfyygrfdi2i.cloudfront.net/9d45/hploop_0204.jpg">
-      <!-- <source src="https://d3mlfyygrfdi2i.cloudfront.net/a144/hploop_0204.mp4" type="video/mp4"></source> -->
+      <source src="https://d3mlfyygrfdi2i.cloudfront.net/a144/hploop_0204.mp4" type="video/mp4"></source>
     </video>
     <h3>Bring creative projects to life</h3>
     <h6><a href="<%= learn_url %>">Learn more</a></h6>
@@ -11,25 +11,25 @@
     <div class="pick-of-day group">
       <h4>Staff Picks: Art</h4>
       <p>See all Art projects</p>
-		
+
       <div class="project-main group">
-        <% project = Project.find(3) %>        
-		      
+        <% project = Project.find(3) %>
+
 					<div class="kickstarter-item-big group">
 			        <img src="https://s3.amazonaws.com/ksr/projects/1263921/photo-full.jpg?1408136644">
-	
+
 						<div class="kickstarter-item-big-info group">
-							
+
 				      <div class="project-title-info">
 				        <a href=""><%= project.title %></a>
 				        <p>by <%= project.creator.name %></p>
 				        <p><%= project.blurb %></p>
 				      </div>
-							
+
 				      <div class="kickstarter-item-location">
 				        <span><%= project.location.name %></span>
 				      </div>
-							
+
 				      <% percentage = (project.money_raised.to_i / project.goal) * 100 %>
 				      <div class="green-bar group">
 				        <div class="green-bar-outer">
@@ -56,19 +56,19 @@
 				        </ul>
 				      </div>
 						</div>
-					
+
 			    </div>
-					
+
 					<ul class="side-categories">
 					      <% Category.primary_categories.each do |category| %>
 					        <li><a href=""><%= category.name %></a></li>
 					      <% end %>
 					    </ul>
 			</div>
-					
+
       </div>
     </div>
-    
+
   </section>
   </div>
 
