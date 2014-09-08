@@ -1,3 +1,12 @@
+<script>
+$(document).ready(function () {
+  var view = new App.Views.ProjectsEdit({
+    model: App.Collections.projects.getOrFetch(<%= @project.id %>)
+  });
+  $("body").html(view.render().$el);
+});
+</script>
+
 <!-- <form action="<%= project_url(@project) %>" method="POST" enctype="multipart/form-data">
   <%= authenticate %>
   <input type="hidden" name="_method" value="PATCH">
@@ -110,7 +119,12 @@
 <h1>Now a little bit about you.</h1>
 <%= render "users/form", user: @project.creator %> -->
 
-<!DOCTYPE html>
+
+
+
+<!--Google Maps stuffs -->
+
+<!-- <!DOCTYPE html>
 <html>
   <head>
     <title>Place Autocomplete Hotel Search</title>
@@ -546,7 +560,7 @@ function buildIWContent(place) {
       </table>
     </div>
   </body>
-</html>
+</html> -->
 
 
 

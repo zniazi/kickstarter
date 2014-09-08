@@ -1,0 +1,133 @@
+section.learn-page {
+	
+}
+
+section.learn-page > img {
+	position: absolute;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+}
+
+section.learn-page > h1 {
+	font-size: 60px;
+	width: 60%;
+	font-weight: 200;
+	text-align: center;
+	margin: auto;
+	padding-top: 20px;
+	margin-bottom: 20px;
+}
+
+section.learn-page > p {
+	color: #828587;
+	text-align: center;
+	margin-bottom: 40px;
+	font-size: 14px;
+}
+
+section.learn-page input[type="submit"] {
+		padding: 5px 20px;
+		font-size: 14px;
+		position: relative;
+		font-weight: bold;
+		left: 50%;
+		margin-left: -65px;
+		margin-bottom: 30px;
+		line-height: 40px;
+		border-radius: 6px;
+		background: #2bde73;
+		color: white;
+		transition: all 0.2s ease-in-out;
+}
+
+section.learn-page input[type="submit"]:hover {
+	background: #26b258;
+}
+
+section.learn-page > h5 {
+	color: #828587;
+	margin-bottom: 20px;
+	margin-top: 100px;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: bold;
+	text-align: center;
+}
+
+section.learn-page > form {
+}
+
+section.learn-page ul.learn-categories {
+	width: 85%;
+	margin: auto;
+}
+
+section.learn-page > ul.learn-categories > li {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+section.learn-page > ul.learn-categories a {
+	background: #828587;
+	color: white;
+	font-size: 14px;
+	font-weight: bold;
+	display: inline-block;
+	line-height: 40px;
+	padding: 0 20px;
+	margin: 10px;
+	border-radius: 6px;
+	transition: all 0.2s ease-in-out;
+}
+
+section.learn-page > ul.learn-categories a:hover {
+	background: #afafaf;
+}
+
+// Start project CSS
+
+section.start-project {
+	
+}
+
+section.start-project > h1 {
+	text-align: center;
+	font-weight: 200;
+	font-size: 48px;
+	padding-top: 50px;
+	line-height: 50px;
+}
+
+section.start-project > h3 {
+	font-size: 32px;
+	line-height: 40px;
+	display: inline-block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,16 +1,20 @@
-<h1>Log in</h1>
-<form action="<%= session_url %>" method="POST">
-  <%= authenticate %>
-  <label for="session_name">Email
-    <input type="text" name="session[email]"
-      value="<%= @user.email %>" id="session_email">
-  </label>
-  <label for="session_password">Password
-    <input type="password" name="session[password]" id="session_password">
-  </label>
-  <input type="submit" value="Log me in!">
-</form>
-
-OR
-
-<a href="/auth/facebook">Login with facebook</a>
+<div class="log-in-background">
+	<div class="log-in">
+	<h1>Log in</h1>
+	<a href="/auth/facebook">Login with facebook</a>
+	<h6>We'll never post anything on Facebook 
+without your permission.</h6>
+	<p>or</p>
+	<form action="<%= session_url %>" method="POST">
+	  <%= authenticate %>
+	  <label for="session_name">
+	    <input type="text" name="session[email]"
+	      value="<%= @user.email %>" id="session_email" placeholder="Email">
+	  </label>
+	  <label for="session_password">
+	    <input type="password" name="session[password]" id="session_password" placeholder="Password">
+	  </label>
+	  <input type="submit" value="Log me in!">
+	</form>
+	</div>
+</div>

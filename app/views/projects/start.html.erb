@@ -1,6 +1,6 @@
-<h3>I want to create a ... project called ...</h3>
-
-<form action="<%= projects_url %>" method="POST">
+<section class="start-project">
+	<h1>What are you going to create?</h1>
+	<h3>I want to create a <form action="<%= projects_url %>" method="POST">
   <%= authenticate %>
 	<label for="product_category">
   <select name="project[category_id]" id="product_category">
@@ -14,4 +14,5 @@
   </label>
 	
   <input type="submit" value="Continue">
-</form>
+</form> project called <input type="text"></h3>
+</section>

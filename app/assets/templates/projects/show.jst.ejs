@@ -1,3 +1,18 @@
+<header>
+	<nav class="group">
+		<a href="/"><p style="color:#000">Kick</p><p style="color:#2CDB5F">starter</p></a>
+		<div>
+			<a href="/discover">Discover</a>
+			<a href="/learn">Start</a>
+			<a href="" class="search">Search</a>
+		</div>
+    <div class="right-nav group">
+
+    </div>
+
+	</nav>
+</header>
+
 <% var creator = project.creator() %>
 
 <div class="content">
@@ -10,7 +25,7 @@
     <ul class="group">
       <li><a href="">Home</a></li>
       <li><a href="">Updates <strong class="badge">2</strong></a></li>
-      <li><a href="">Backers <strong class="badge">34</strong></a></li>
+      <li><a href="">Backers <strong class="badge"><%= project.backers().length %></strong></a></li>
       <li><a href="">Comments <strong class="badge">4</strong></a></li>
       <ul>
         <li><a href=""><%= project.location().escape("name") %></a></li>

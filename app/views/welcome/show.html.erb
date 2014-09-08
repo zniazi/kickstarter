@@ -12,7 +12,7 @@
       <h4>Staff Picks: Art</h4>
       <p>See all Art projects</p>
 		
-      <div class="project-main">
+      <div class="project-main group">
         <% project = Project.find(3) %>        
 		      
 					<div class="kickstarter-item-big group">
@@ -20,7 +20,7 @@
 	
 						<div class="kickstarter-item-big-info group">
 							
-				      <div>
+				      <div class="project-title-info">
 				        <a href=""><%= project.title %></a>
 				        <p>by <%= project.creator.name %></p>
 				        <p><%= project.blurb %></p>
@@ -56,17 +56,19 @@
 				        </ul>
 				      </div>
 						</div>
-
+					
 			    </div>
-				</div>
+					
+					<ul class="side-categories">
+					      <% Category.primary_categories.each do |category| %>
+					        <li><a href=""><%= category.name %></a></li>
+					      <% end %>
+					    </ul>
+			</div>
 					
       </div>
     </div>
-    <ul class="side-categories">
-      <% Category.primary_categories.each do |category| %>
-        <li><a href=""><%= category.name %></a></li>
-      <% end %>
-    </ul>
+    
   </section>
   </div>
 

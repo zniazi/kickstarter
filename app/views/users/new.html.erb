@@ -1,17 +1,25 @@
-<h1>Sign up</h1>
-<form action="<%= users_url %>" method="POST">
-  <%= authenticate %>
-  <label for="user_name">Name
-    <input type="text" name="user[name]"
-      value="<%= @user.name %>" id="user_name">
-  </label>
-  <label for="user_email">Email
-    <input type="text" name="user[email]"
-      value="<%= @user.email %>" id="user_email">
-  </label>
-  <label for="user_password">Password
-    <input type="password" name="user[password]" id="user_password">
-  </label>
+<div class="log-in-background">
+	<div class="log-in">
+	<h1>Sign up</h1>
+	<a href="/auth/facebook">Login with facebook</a>
+	<h6>We'll never post anything on Facebook 
+without your permission.</h6>
+	<p>or</p>
+	<form action="<%= users_url %>" method="POST">
+	  <%= authenticate %>
+	  <label for="user_name">
+	    <input type="text" name="user[name]"
+	      value="<%= @user.name %>" id="user_name" placeholder="Name">
+	  </label>
+	  <label for="user_email">
+	    <input type="text" name="user[email]"
+	      value="<%= @user.email %>" id="user_email" placeholder="Email">
+	  </label>
+	  <label for="user_password">
+	    <input type="password" name="user[password]" id="user_password" placeholder="Password">
+	  </label>
 
-  <input type="submit" value="Sign me up!">
-</form>
+	  <input type="submit" value="Sign me up!">
+	</form>
+	</div>
+</div>
