@@ -22,7 +22,7 @@ class Api::ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     if @project.update(project_params)
       render nothing: true, status: :ok
-    else
+    else''
       render json: @project.errors, status: :unprocessable_entity
     end
   end
