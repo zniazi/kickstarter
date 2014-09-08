@@ -92,22 +92,22 @@ strong {
 
 @font-face {
     font-family: 'Swiss';
-    src: url('/assets/Swiss_721.ttf');
+    src: font-url('/assets/Swiss_721.ttf');
 }
 
 @font-face {
 	font-family: "baruta";
-	src: url('/assets/RNS-B.ttf');
+	src: font-url('/assets/RNS-B.ttf');
 }
 
 @font-face {
   font-family: "helvetica-neue-medium";
-  src: url('/assets/helvetica-neue-medium.ttf');
+  src: font-url('/assets/helvetica-neue-medium.ttf');
 }
 
 @font-face {
   font-family: "helvetica-neue-light";
-  src: url('/assets/helvetica-neue-light.otf');
+  src: font-url('/assets/helvetica-neue-light.otf');
 }
 
 body {
