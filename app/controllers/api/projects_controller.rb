@@ -21,7 +21,7 @@ class Api::ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     if @project.update(project_params)
-      render :edit
+      render nothing: true, status: :ok
     else
       render json: @project.errors, status: :unprocessable_entity
     end

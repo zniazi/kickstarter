@@ -38,9 +38,9 @@
   <section class="content-main group">
     <main>
       <div class="project-video">
-        <video src="<%= project.get("video_url") %>" type="video/mp4" poster="<%= project.get("photo_url") %>">
+        <video src="https://d2pq0u4uni88oo.cloudfront.net/projects/1283416/video-435536-h264_high.mp4" type="video/mp4" poster="https://s3.amazonaws.com/ksr/projects/1283416/photo-main.jpg?1408896191"autoplay="true">
         </video>
-        <div class="video-overlay">▶ Play</div>
+        <!-- <div class="video-overlay">▶ Play</div> -->
       </div>
 
       <h5><%= project.get("blurb") %></h5>
@@ -95,7 +95,12 @@
 </div>
 
 
-
+<script>
+$("div.project-video video").on("click", function () {
+  $("div.video-overlay").css("visibility", "hidden");
+  $("div.project-video video").setAttribute("autoplay", true);
+})
+</script>
 
 
 

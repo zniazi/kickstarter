@@ -305,6 +305,23 @@
   border-bottom-right-radius: 10px;
 }
 
+section.edit-form > form > input[type="submit"] {
+	padding: 0 20px;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 40px;
+	margin-top: 25px;
+	border-radius: 6px;
+	background: #2bde73;
+	color: white;
+	transition: all 0.2s ease-in-out;
+  float: right;
+}
+
+section.edit-form > form > input[type="submit"]:hover {
+  background: #26b258;
+}
+
 
 
 

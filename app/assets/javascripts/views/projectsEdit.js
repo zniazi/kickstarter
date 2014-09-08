@@ -47,9 +47,10 @@ App.Views.ProjectsEdit = Backbone.View.extend({
 
   submit: function (event) {
     event.preventDefault();
-
-    var params = $(event.currentTarget).serializeJSON();
-    this.model.update(params["project"]);
+    var params = $(event.currentTarget).serializeJSON()["project"];
+    this.model.set(params);
+    console.log(this.model)
+    this.model.save();
   },
 
   // var renderedContent = this.template()({

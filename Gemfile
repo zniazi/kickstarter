@@ -50,7 +50,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 
 gem 'backbone-on-rails'
-gem 'serialize_json-rails'
+# gem 'serialize_json-rails'
 
 gem 'stripe', git: 'https://github.com/stripe/stripe-ruby'
 

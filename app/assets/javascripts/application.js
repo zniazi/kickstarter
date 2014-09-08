@@ -10,12 +10,13 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require checkout.js
 //= require underscore
+//= require jquery.serializejson.min
 //= require backbone
+//= require checkout.js
 //= require kickstarter
 //= require_tree ../templates
 //= require_tree ./models

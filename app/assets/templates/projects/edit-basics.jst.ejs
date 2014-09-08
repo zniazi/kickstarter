@@ -13,8 +13,6 @@
 	</nav>
 </header>
 
-<% console.log(this.model) %>
-
 <main class="edit-main">
     <nav class="edit-nav">
       <ul class="group">
@@ -107,7 +105,9 @@
         		<input type="text" name="project[goal]" value="$<%= project.escape("goal") %>">
         </div>
 
+        <input type="submit" value="Save Changes">
       </form>
+
     </section>
 
 </main>
