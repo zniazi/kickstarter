@@ -25,14 +25,13 @@ module Kickstarter
       :url =>':s3_domain_url',
       :path => "images/:class/:id.:style.:extension",
       :s3_credentials => {
-        :bucket => ENV['AWS_BUCKET'], #these values safely stored in application.yml thanks to figaro!
+        :bucket => ENV['AWS_BUCKET'],
         :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
         :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
       }
     }
 
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
-    # config.assets.precompile += %w( .svg .eot .woff .ttf)
     config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
   end
 end

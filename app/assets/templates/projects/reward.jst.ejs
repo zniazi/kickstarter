@@ -1,0 +1,57 @@
+<% var MONTHS = ["January", "February", "March", "April", "May", "June", "July",
+          "August", "September", "October", "November", "December"] %>
+
+<% var YEARS = [2014, 2015, 2016, 2017, 2018, 2019] %>
+
+<% var SHIPPING = ["Shipping anywhere in the world",
+            "Shipping within the US only",
+            "No shipping involved"] %>
+
+<div class="gray-field group">
+  <label for="reward-form" data-id="<%= counter %>" class="reward-label">Reward #<%= counter %></label>
+
+  <form id="reward-form" class="group" data-id="<%= counter - 1 %>">
+    <div class="reward-form-div group">
+      <label for="reward-pledge">Pledge amount</label>
+      <% var reward = project.rewards().at(counter - 1) || new App.Models.Reward() %>
+      <input type="text" id="reward-pledge" name="reward[pledge]" 
+				value="$<%= reward.escape("pledge") || 0 %>"></input>
+    </div>
+
+    <label for="reward-description">Description</label>
+    <textarea id="reward-description" name="reward[description]"><%= reward.escape("description") %></textarea>
+    <label>Estimated delivery</label>
+    <select class="month" name="reward[delivery_month]">
+      <% _(MONTHS).each(function (month, idx) { %>
+        <option value="<%= idx + 1 %>"
+          <% if (parseInt(reward.escape("delivery_month")) === idx + 1) { %>
+            <%= "selected" %>
+          <% }; %>>
+		  <%= month %>
+		</option>
+      <% }); %>
+    </select>
+    <select class="year" name="reward[delivery_year]">
+      <% _(YEARS).each(function (year, idx) { %>
+        <option value="<%= idx + 1 %>"
+          <% if (parseInt(reward.escape("delivery_year")) === idx + 1) { %>
+            <%= "selected" %>
+          <% }; %>>
+					<%= year %></option>
+      <% }); %>
+    </select>
+    <label for="reward-shipping">Shipping details</label>
+    <select id="reward-shipping" name="reward[shipping_type]">
+      <% _(SHIPPING).each(function (method, idx) { %>
+        <option value="<%= idx %>"
+          <% if (parseInt(reward.escape("shipping_type")) === idx) { %>
+            <%= "selected" %>
+          <% }; %>>
+					<%= method %></option>
+      <% }); %>
+    </select>
+    <label for="reward-limit">Limit quantity</label>
+    <input type="text" value="<%= reward.escape("limit") || 'None' %>"
+      id="reward-limit" name="reward[limit]">
+  </form>
+</div>

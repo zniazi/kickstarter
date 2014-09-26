@@ -47,11 +47,13 @@
 	          <input type="text" name="user[name]"
               value="<%= project.creator().escape("name") %>" id="user_name">
         </div>
-
+		
         <div class="gray-field group">
         	<label for="user_biography">Biography</label>
             <textarea name="user[biography]" id="user_biography"><%= project.creator().escape("biography") %></textarea>
         </div>
+		
+		<input type="submit" value="Save Changes">
       </form>
     </section>
 

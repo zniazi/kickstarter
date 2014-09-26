@@ -1,4 +1,4 @@
-App.Views.ProjectsEdit = Backbone.View.extend({
+App.Views.ProjectsEdit = Backbone.CompositeView.extend({
   template: function () {
   	switch(parseInt(this._view)) {
 		case 1:
@@ -24,7 +24,8 @@ App.Views.ProjectsEdit = Backbone.View.extend({
     "change #product-category": "renderSubcategory",
 		"click .edit-nav": "renderEdit",
     "click .add-reward": "addRewardView",
-    "change form": "saveChanges"
+    "change form": "saveChanges",
+		"click div.submit-rewards": "submitRewards"
   },
 
   initialize: function () {
@@ -32,8 +33,22 @@ App.Views.ProjectsEdit = Backbone.View.extend({
     App.Collections.locations.fetch();
     this.listenTo(App.Collections.categories, "sync", this.render);
     this.listenTo(App.Collections.locations, "sync", this.render);
-		this._view = 1;
+		this.listenTo(this.model, "sync", this.addRewardViews)
+		this._view = 4;
+		this.counter = 1;
   },
+	
+	addRewardViews: function () {
+		var view = this;
+				
+		this.model.rewards().each(function (reward) {
+			var rewardView = new App.Views.RewardView({
+				counter: view.counter++,
+				project: view.model
+			});
+			view.addSubview(".edit-form-rewards", rewardView);
+		});
+	},
 
   render: function () {
     var renderedContent = this.template()({
@@ -41,26 +56,33 @@ App.Views.ProjectsEdit = Backbone.View.extend({
       primaryCategories: App.Collections.categories, locations: App.Collections.locations
     });
     this.$el.html(renderedContent);
-
+		this.renderSubviews();
+		
     return this;
   },
 
   submit: function (event) {
     event.preventDefault();
-    var params = $(event.currentTarget).serializeJSON()["project"];
-    this.model.set(params);
-    console.log(this.model)
-    this.model.save();
+		console.log($(event.currentTarget))
+    var params = $(event.currentTarget).serializeJSON();
+	if (params["project"]) {
+	    this.model.set(params["project"]);
+	    this.model.save();
+	} else if (params["user"]) {
+		this.model.creator().set(params["user"]);
+		this.model.creator().save();
+	}
   },
-
-  // var renderedContent = this.template()({
-  //   project: this.model, primeCategory: primeCategory,
-  //   primaryCategories: App.Collections.categories, locations: App.Collections.locations
-  // });
-  //
-  // this.$el.html(renderedContent);
-  //
-  // this.render();
+	
+	submitRewards: function (event) {
+		var view = this;
+		
+		_($("div.edit-form-rewards #reward-form")).each(function (reward) {
+			var id = $(reward).attr("data-id");			
+			view.model.rewards().at(id).set($(reward).serializeJSON()["reward"]);
+			view.model.rewards().at(id).save();
+		});
+	},
 
   renderSubcategory: function (event) {
     var newId = $(event.currentTarget).val();
@@ -83,11 +105,19 @@ App.Views.ProjectsEdit = Backbone.View.extend({
     }
 
     this._view = $(event.target).attr("data-id");
-    console.log($(event.target))
 		this.render();
 	},
 
   addRewardView: function (event) {
+		var view = this;
+		var newReward = new App.Models.Reward
+		newReward.set({ project_id: this.model.id })
+		this.model.rewards().add(newReward);
+		var newRewardView = new App.Views.RewardView({
+			counter: view.counter++,
+			project: view.model
+		});
+		this.addSubview(".edit-form-rewards", newRewardView);
   },
 
   saveChanges: function (event) {

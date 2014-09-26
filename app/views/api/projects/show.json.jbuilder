@@ -21,9 +21,12 @@ json.backers @project.backers.each do |backer|
 end
 
 json.rewards @project.rewards.each do |reward|
+  json.id reward.id
   json.backers reward.backers
   json.pledge reward.pledge
   json.description reward.description
   json.delivery_date reward.delivery_date.strftime("%B %Y")
   json.limit reward.limit
+  json.delivery_month reward.delivery_month
+  json.delivery_year reward.delivery_year
 end

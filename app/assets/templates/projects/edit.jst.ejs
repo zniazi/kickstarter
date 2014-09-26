@@ -1,4 +1,3 @@
-<% console.log("Project is ", primeCategory) %>
 <main class="edit-main">
     <nav class="edit-nav">
       <ul class="group">
@@ -10,7 +9,7 @@
 
         <a href="" class="edit-continue"><li>Continue</li></a>
       </ul>
-    </nav>
+    </nav>		
 
     <header class="edit-header">
       <h1>Meet your new project.</h1>
@@ -50,7 +49,7 @@
                     <option value="">Subcategory (optional)</option>
             	    <% subcategories.each(function (subcategory) { %>
             	      <option value="<%= subcategory.id %>"
-                      <% if (project.get("subcategory_id") === category.get("id")) { %>
+                      <% if (project.subcategory().id === subcategory.get("id")) { %>
                         <%= "selected" %>
                       <% }; %>>
             					<%= subcategory.escape("name") %>

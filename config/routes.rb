@@ -23,6 +23,6 @@ Rails.application.routes.draw do
     get "discover", to: "categories#index"
     resources :categories, only: [:index, :show]
     resources :locations, only: [:index, :show]
-    resources :rewards, only: [:create, :destroy]
+    resources :rewards, only: [:create, :update, :destroy]
   end
 end

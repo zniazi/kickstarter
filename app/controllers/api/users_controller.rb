@@ -19,11 +19,10 @@ class Api::UsersController < ApplicationController
     render edit_api_user_url(@user)
   end
 
-
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to api_user_url(@user)
+      render nothing: true, status: :ok
     else
       render json: @user.errors.full_messages, status: :unprocessable_entity
     end

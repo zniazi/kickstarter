@@ -64,7 +64,7 @@
                     <option value="">Subcategory (optional)</option>
             	    <% subcategories.each(function (subcategory) { %>
             	      <option value="<%= subcategory.id %>"
-                      <% if (project.get("subcategory_id") === category.get("id")) { %>
+                      <% if (project.subcategory().id === subcategory.get("id")) { %>
                         <%= "selected" %>
                       <% }; %>>
             					<%= subcategory.escape("name") %>
@@ -85,7 +85,7 @@
         		<select name="project[location_id]" id="project_location">
               <% if (locations.models.length > 0) { %>
           			<% locations.each(function (location) { %>
-          			<option value=<%= location.id %>
+          			<option value="<%= location.id %>"
                   <% if (project.location().id === location.get("id")) { %>
                     <%= "selected" %>
                   <% }; %>>
@@ -102,7 +102,7 @@
         </div>
         <div class="gray-field group">
         	<label for="project_goal">Funding goal</label>
-        		<input type="text" name="project[goal]" value="$<%= project.escape("goal") %>">
+        		<input type="text" name="project[goal]" value="<%= project.escape("goal") %>">
         </div>
 
         <input type="submit" value="Save Changes">

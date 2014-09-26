@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 User.create([
   { name: "Zak Niazi", email: "zniazi1029@gmail.com", password: "123456", admin: true},
   { name: "John Redwood", email: "redskins@gmail.com", password: "123456"},
